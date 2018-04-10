@@ -1,28 +1,80 @@
 package com.techelevator.model;
 
+import java.time.LocalDate;
+
 public class Pothole {
 
-    private Long id;
-    private String email;
-    private String password;
+    private long id;
+    private String streetName;
+    private String statusCode;
+    private LocalDate statusDate;
+    private int severity;
+    private double longitude;
+    private double latitude;
+    private LocalDate reportDate;
 
-    public Long getID() {
+    public Long getId() {
         return id;
     }
-    public void setID(Long id) {
+
+    public void setId(Long id) {
         this.id = id;
     }
-    public String getEmail() {
-        return this.email;
+
+    public String getStreetName() {
+        return streetName;
     }
-    public void setEmail(String email) {
-        this.email = email;
+
+    public void setStreetName(String streetName) {
+        this.streetName = streetName;
     }
-    public String getPassword() {
-        return password;
+
+    public String getStatusCode() {
+        return statusCode;
     }
-    public void setPassword(String password) {
-        this.password = password;
+
+    public void setStatusCode(String statusCode) {
+        this.statusCode = statusCode;
+    }
+
+    public LocalDate getStatusDate() {
+        return statusDate;
+    }
+
+    public void setStatusDate(LocalDate statusDate) {
+        this.statusDate = statusDate;
+    }
+
+    public Integer getSeverity() {
+        return severity;
+    }
+
+    public void setSeverity(Integer severity) {
+        this.severity = severity;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
+    }
+
+    public LocalDate getReportDate() {
+        return reportDate;
+    }
+
+    public void setReportDate(LocalDate reportDate) {
+        this.reportDate = reportDate;
     }
 
 }
