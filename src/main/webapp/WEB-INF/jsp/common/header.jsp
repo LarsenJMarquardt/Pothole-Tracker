@@ -35,6 +35,11 @@
 </head>
 
 <body>
+<c:url value="/potholes/allPotholes" var="allPotholesHref"/>
+<c:url value="/potholes/report" var="reportHref"/>
+<c:url value="/user/login" var="loginHref"/>
+<c:url value="/user/register" var="registerHref"/>
+<c:url value="/user/logout" var="logoutHref"/>
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -48,16 +53,12 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">
-                <img src="img/te_logo.png" alt="Tech Elevator" width="120">
+            <a class="navbar-brand" href="${homePageHref}">
+                <img src="/img/placeholder.png" alt="Pothole Tracker" width="120">
             </a>
         </div>
 
-        <c:url value="/potholes/allPotholes" var="allPotholesHref"/>
-        <c:url value="/potholes/report" var="reportHref"/>
-        <c:url value="/user/login" var="loginHref"/>
-        <c:url value="/user/register" var="registerHref"/>
-        <c:url value="/user/logout" var="logoutHref"/>
+
         <!-- Collect the nav links, forms, and other content for toggling -->
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -70,7 +71,7 @@
                     <a href="${allPotholesHref}">Pothole List</a>
                 </li>
                 <li>
-                    <a href="${reportHref}">Report</a>
+                    <a href="${reportHref}">Report Pothole</a>
                 </li>
                 <li>
                     <a href="${loginHref}">Login</a>
