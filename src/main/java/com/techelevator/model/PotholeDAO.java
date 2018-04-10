@@ -1,8 +1,9 @@
 package com.techelevator.model;
 
+import java.util.List;
+
 public interface PotholeDAO {
 
-    User getUser(String email);
-    void saveUser(User user);
+    List<Pothole> getListOfPotholes();
 
 }
