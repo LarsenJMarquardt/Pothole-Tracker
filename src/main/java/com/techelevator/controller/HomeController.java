@@ -15,15 +15,8 @@ public class HomeController {
 
     @RequestMapping("/")
     public String displayHome() {
-        return "redirect:/potholes/allPotholes";
+        return "home";
     }
 
-    @RequestMapping(path = "/potholes/allPotholes", method = RequestMethod.GET)
-    public String showAllPotholes(Model model) {
-        model.addAttribute("allPotholes", potholeDAO.getListOfPotholes());
-
-
-        return "/potholes/allPotholes";
-    }
 
 }

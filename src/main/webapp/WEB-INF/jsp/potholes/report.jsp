@@ -1,16 +1,19 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: bdewitt
-  Date: 4/10/18
-  Time: 2:31 PM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Title</title>
-</head>
-<body>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 
-</body>
-</html>
+<c:import url="/WEB-INF/jsp/common/header.jsp" />
+
+<div id = "report">
+
+    Report a pothole
+
+    <c:url var="reportHref" value="/report"/>
+
+    <form:form method="POST" action="${reportHref}" modelAttribute="report">
+        <div id ="">
+
+        </div>
+
+</div>
+
+<c:import url="/WEB-INF/jsp/common/footer.jsp" />

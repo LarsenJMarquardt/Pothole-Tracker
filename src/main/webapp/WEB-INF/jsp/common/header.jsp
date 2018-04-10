@@ -34,12 +34,15 @@
 </header>
 <nav>
     <ul>
-        <c:url value="/allPotholes" var="allPotholesHref" />
+        <c:url value="/potholes/allPotholes" var="allPotholesHref" />
+        <c:url value="/potholes/report" var="reportHref" />
         <c:url value="/user/login" var="loginHref" />
         <c:url value="/user/register" var="registerHref" />
         <c:url value="/user/logout" var="logoutHref" />
 
        <li><a href="${homePageHref}">Home</a></li>
+        <li><a href="${allPotholesHref}">Pothole List</a></li>
+        <li><a href="${reportHref}">Report</a></li>
         <%--<c:choose>--%>
             <%--<c:when test="${empty sessionScope.email}">--%>
                 <li class="right-aligned"><a href="${loginHref}">Login</a></li>
