@@ -28,4 +28,5 @@ target
 **/.DS_Store
 
 # ignore workspace xml
-.idea/workspace.xml
+.idea
+*.iml
