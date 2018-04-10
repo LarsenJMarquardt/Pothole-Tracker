@@ -2,5 +2,6 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
+TEST
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
