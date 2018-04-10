@@ -7,12 +7,9 @@
 
     Report a pothole
 
-    <c:url var="reportHref" value="/report"/>
+    <c:url var="reportHref" value="/potholes/report"/>
 
-    <form:form method="POST" action="${reportHref}" modelAttribute="report">
-        <div id ="">
 
-        </div>
 
 </div>
 
