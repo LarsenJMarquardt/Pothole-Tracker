@@ -12,7 +12,7 @@ public class HomeController {
     }
 
     @RequestMapping("/allPotholes")
-    public String displayUSPresidents() {
+    public String displayAllPotholes() {
         return "allPotholes";
     }
 
