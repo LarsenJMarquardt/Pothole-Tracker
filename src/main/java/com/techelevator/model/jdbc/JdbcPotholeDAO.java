@@ -24,11 +24,11 @@ public class JdbcPotholeDAO implements PotholeDAO {
     }
 
     @Override
-    public List<Pothole> getListOfPotholesOrderByDate() {
+    public List<Pothole> getListOfPotholes(String orderBy) {
     		List<Pothole> potholeList = new ArrayList<Pothole>();
-		String getAllPotholes = "SELECT * FROM pothole ORDER BY report_date";
+		String getAllPotholes = "SELECT * FROM pothole ORDER BY ?";
 		Pothole thePothole;
-		SqlRowSet results = jdbcTemplate.queryForRowSet(getAllPotholes);
+		SqlRowSet results = jdbcTemplate.queryForRowSet(getAllPotholes, orderBy);
 		while (results.next()) {
 			thePothole = mapRowToPothole(results);
 			potholeList.add(thePothole);
@@ -36,47 +36,11 @@ public class JdbcPotholeDAO implements PotholeDAO {
 		return potholeList;
     }
     
-    @Override
-	public List<Pothole> getListOfPotholesOrderBySeverity() {
-	    	List<Pothole> potholeList = new ArrayList<Pothole>();
-			String getAllPotholes = "SELECT * FROM pothole ORDER BY severity";
-			Pothole thePothole;
-			SqlRowSet results = jdbcTemplate.queryForRowSet(getAllPotholes);
-			while (results.next()) {
-				thePothole = mapRowToPothole(results);
-				potholeList.add(thePothole);
-			}
-			return potholeList;
-	}
-
-	@Override
-	public List<Pothole> getListOfPotholesOrderByStreetName() {
-		List<Pothole> potholeList = new ArrayList<Pothole>();
-		String getAllPotholes = "SELECT * FROM pothole ORDER BY street_name";
-		Pothole thePothole;
-		SqlRowSet results = jdbcTemplate.queryForRowSet(getAllPotholes);
-		while (results.next()) {
-			thePothole = mapRowToPothole(results);
-			potholeList.add(thePothole);
-		}
-		return potholeList;
-	}
-
-	@Override
-	public List<Pothole> getListOfPotholesOrderByStatusCode() {
-		List<Pothole> potholeList = new ArrayList<Pothole>();
-		String getAllPotholes = "SELECT * FROM pothole ORDER BY status_code";
-		Pothole thePothole;
-		SqlRowSet results = jdbcTemplate.queryForRowSet(getAllPotholes);
-		while (results.next()) {
-			thePothole = mapRowToPothole(results);
-			potholeList.add(thePothole);
-		}
-		return potholeList;
-	}
+   
     
     private Pothole mapRowToPothole(SqlRowSet results) {
         Pothole thePothole = new Pothole();
+        thePothole.setId(results.getLong("pothole_id"));
         thePothole.setStreetName(results.getString("street_name"));
         thePothole.setStatusCode(results.getString("status_code"));
         thePothole.setStatusDate(results.getDate("status_date").toLocalDate());

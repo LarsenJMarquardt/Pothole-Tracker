@@ -15,7 +15,9 @@ public class PotHoleController {
 
     @RequestMapping(path = "/potholes/allPotholes", method = RequestMethod.GET)
     public String showAllPotholes(Model model) {
-        model.addAttribute("allPotholes", potholeDAO.getListOfPotholes());
+    	
+    		String severity = "severity";
+        model.addAttribute("allPotholes", potholeDAO.getListOfPotholes(severity));
 
 
         return "/potholes/allPotholes";
