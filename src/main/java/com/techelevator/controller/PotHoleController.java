@@ -4,6 +4,7 @@ import com.techelevator.model.PotholeDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -14,9 +15,19 @@ public class PotHoleController {
     PotholeDAO potholeDAO;
 
     @RequestMapping(path = "/potholes/allPotholes", method = RequestMethod.GET)
+<<<<<<< HEAD
     public String showAllPotholes(Model model) {
         model.addAttribute("allPotholes", potholeDAO.getListOfPotholesOrderByDate());
 
+=======
+    public String showAllPotholes(Model model, @RequestAttribute(required=false) String orderBy)  {
+    		
+    		if (orderBy == null) {
+    			model.addAttribute("allPotholes", potholeDAO.getListOfPotholes("report_date"));
+    		} else {
+	        model.addAttribute("allPotholes", potholeDAO.getListOfPotholes(orderBy));
+	    	}
+>>>>>>> aab01f025cc1b6ff9ae048c01b4738e59cc204ae
 
         return "/potholes/allPotholes";
     }

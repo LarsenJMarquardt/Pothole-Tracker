@@ -4,12 +4,6 @@ import java.util.List;
 
 public interface PotholeDAO {
 
-    List<Pothole> getListOfPotholesOrderByDate();
-    
-    List<Pothole> getListOfPotholesOrderBySeverity();
-    
-    List<Pothole> getListOfPotholesOrderByStreetName();
-    
-    List<Pothole> getListOfPotholesOrderByStatusCode();
+    List<Pothole> getListOfPotholes(String orderBy);
 
 }
