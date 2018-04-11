@@ -11,6 +11,12 @@
             </div>
         </div>
     </div>
+    <c:url var="orderBySeverityLink" value="/potholes/allPotholes">
+        <c:param name="orderBy" value="severity"/>
+    </c:url>
+    Order by
+    <a href="${orderBySeverityLink}">severity</a>
+
     <c:forEach items="${allPotholes}" var="pothole">
         <div class="container">
             <section id="pothole">
