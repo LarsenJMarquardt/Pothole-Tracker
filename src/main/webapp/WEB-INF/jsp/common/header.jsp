@@ -35,6 +35,7 @@
 </head>
 
 <body>
+<c:url value="/" var="homePageHref"/>
 <c:url value="/potholes/allPotholes" var="allPotholesHref"/>
 <c:url value="/potholes/report" var="reportHref"/>
 <c:url value="/user/login" var="loginHref"/>
