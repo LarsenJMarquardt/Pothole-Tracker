@@ -7,6 +7,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class PotHoleController {
@@ -15,7 +16,7 @@ public class PotHoleController {
     PotholeDAO potholeDAO;
 
     @RequestMapping(path = "/potholes/allPotholes", method = RequestMethod.GET)
-    public String showAllPotholes(Model model, @RequestAttribute(required=false) String orderBy)  {
+    public String showAllPotholes(Model model, @RequestParam(required=false) String orderBy)  {
     		
     		if (orderBy == null) {
     			model.addAttribute("allPotholes", potholeDAO.getListOfPotholes("report_date"));
