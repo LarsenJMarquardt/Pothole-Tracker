@@ -48,3 +48,42 @@ a {
 footer {
 	padding-top: 20px; 
 }
+
+#allPotholeList {
+
+	padding-left: 10%;
+	border-top-width: 25px;
+	padding-right: 10%;
+
+
+}
+
+hr {
+	width: 90%;
+}
+
+
+#allPotholes {
+
+	border-style: solid;
+	border-radius: 10px;
+	border-color: hsl(0, 0%, 90%);
+	padding-top: 10px;
+	margin-top: 10px;
+
+}
+#pothole {
+	padding-right: 8%;
+}
+
+#pothole b{
+	font-weight: 700;
+	color: hsl(0, 0%, 13%);
+
+}
+#pothole p{
+	font-weight: 500;
+	color: hsl(0, 0%, 45%);
+	padding: 0px;
+
+}
