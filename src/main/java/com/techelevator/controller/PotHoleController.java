@@ -17,7 +17,6 @@ public class PotHoleController {
 
     @RequestMapping(path = "/potholes/allPotholes", method = RequestMethod.GET)
     public String showAllPotholes(Model model, @RequestParam(required=false) String orderBy)  {
-    		
     		if (orderBy == null) {
     			model.addAttribute("allPotholes", potholeDAO.getListOfPotholes("report_date"));
     		} else {
