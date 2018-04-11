@@ -24,9 +24,9 @@ public class JdbcPotholeDAO implements PotholeDAO {
     }
 
     @Override
-    public List<Pothole> getListOfPotholes() {
+    public List<Pothole> getListOfPotholesOrderByDate() {
     		List<Pothole> potholeList = new ArrayList<Pothole>();
-		String getAllPotholes = "SELECT * FROM pothole";
+		String getAllPotholes = "SELECT * FROM pothole ORDER BY report_date";
 		Pothole thePothole;
 		SqlRowSet results = jdbcTemplate.queryForRowSet(getAllPotholes);
 		while (results.next()) {
@@ -35,8 +35,46 @@ public class JdbcPotholeDAO implements PotholeDAO {
 		}
 		return potholeList;
     }
+    
+    @Override
+	public List<Pothole> getListOfPotholesOrderBySeverity() {
+	    	List<Pothole> potholeList = new ArrayList<Pothole>();
+			String getAllPotholes = "SELECT * FROM pothole";
+			Pothole thePothole;
+			SqlRowSet results = jdbcTemplate.queryForRowSet(getAllPotholes);
+			while (results.next()) {
+				thePothole = mapRowToPothole(results);
+				potholeList.add(thePothole);
+			}
+			return potholeList;
+	}
 
+	@Override
+	public List<Pothole> getListOfPotholesOrderByStreetName() {
+		List<Pothole> potholeList = new ArrayList<Pothole>();
+		String getAllPotholes = "SELECT * FROM pothole";
+		Pothole thePothole;
+		SqlRowSet results = jdbcTemplate.queryForRowSet(getAllPotholes);
+		while (results.next()) {
+			thePothole = mapRowToPothole(results);
+			potholeList.add(thePothole);
+		}
+		return potholeList;
+	}
 
+	@Override
+	public List<Pothole> getListOfPotholesOrderByStatusCode() {
+		List<Pothole> potholeList = new ArrayList<Pothole>();
+		String getAllPotholes = "SELECT * FROM pothole";
+		Pothole thePothole;
+		SqlRowSet results = jdbcTemplate.queryForRowSet(getAllPotholes);
+		while (results.next()) {
+			thePothole = mapRowToPothole(results);
+			potholeList.add(thePothole);
+		}
+		return potholeList;
+	}
+    
     private Pothole mapRowToPothole(SqlRowSet results) {
         Pothole thePothole = new Pothole();
         thePothole.setStreetName(results.getString("street_name"));
@@ -48,4 +86,6 @@ public class JdbcPotholeDAO implements PotholeDAO {
         thePothole.setReportDate(results.getDate("report_date").toLocalDate());
         return thePothole;
     }
+
+	
 }
