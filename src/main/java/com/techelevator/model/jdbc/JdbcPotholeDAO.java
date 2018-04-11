@@ -39,7 +39,7 @@ public class JdbcPotholeDAO implements PotholeDAO {
     @Override
 	public List<Pothole> getListOfPotholesOrderBySeverity() {
 	    	List<Pothole> potholeList = new ArrayList<Pothole>();
-			String getAllPotholes = "SELECT * FROM pothole";
+			String getAllPotholes = "SELECT * FROM pothole ORDER BY severity";
 			Pothole thePothole;
 			SqlRowSet results = jdbcTemplate.queryForRowSet(getAllPotholes);
 			while (results.next()) {
@@ -52,7 +52,7 @@ public class JdbcPotholeDAO implements PotholeDAO {
 	@Override
 	public List<Pothole> getListOfPotholesOrderByStreetName() {
 		List<Pothole> potholeList = new ArrayList<Pothole>();
-		String getAllPotholes = "SELECT * FROM pothole";
+		String getAllPotholes = "SELECT * FROM pothole ORDER BY street_name";
 		Pothole thePothole;
 		SqlRowSet results = jdbcTemplate.queryForRowSet(getAllPotholes);
 		while (results.next()) {
@@ -65,7 +65,7 @@ public class JdbcPotholeDAO implements PotholeDAO {
 	@Override
 	public List<Pothole> getListOfPotholesOrderByStatusCode() {
 		List<Pothole> potholeList = new ArrayList<Pothole>();
-		String getAllPotholes = "SELECT * FROM pothole";
+		String getAllPotholes = "SELECT * FROM pothole ORDER BY status_code";
 		Pothole thePothole;
 		SqlRowSet results = jdbcTemplate.queryForRowSet(getAllPotholes);
 		while (results.next()) {
