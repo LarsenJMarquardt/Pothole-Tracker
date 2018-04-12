@@ -27,9 +27,10 @@
     <script src="${jsHref}/jquery.min.js"></script>
 
     <script src="${jsHref}/jquery.validate.min.js"></script>
-    <script src="/additional-methods.min.js"></script>
+    <script src="${jsHref}/additional-methods.min.js"></script>
     <!-- BOOTSTRAPPER -->
     <script src="${jsHref}/bootstrap.min.js"></script>
+    <script src="${jsHref}/modal.js"></script>
 
 
 </head>
@@ -75,7 +76,7 @@
                     <a href="${reportHref}">Report Pothole</a>
                 </li>
                 <li>
-                    <a href="${loginHref}">Login</a>
+                    <a id="login" href="${loginHref}">Login</a>
                 </li>
                 <li>
                     <a href="${registerHref}">Register</a>
