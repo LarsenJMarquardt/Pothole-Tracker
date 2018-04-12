@@ -20,7 +20,7 @@
                     required : true,
                     minlength: 5,
                     maxlength: 128,
-                    complexPassword: true
+                    complexPassword: false //change to true later
                 },
                 confirmPassword : {
                     required : true,

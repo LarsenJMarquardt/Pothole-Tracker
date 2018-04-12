@@ -1,7 +1,8 @@
-package com.techelevator.model;
+package com.techelevator.model.jdbc;
 
 import javax.sql.DataSource;
-
+import java.security.*;
+import com.techelevator.model.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
