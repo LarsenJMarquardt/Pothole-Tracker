@@ -30,4 +30,6 @@ INSERT INTO pothole (street_name, status_code, status_date, severity, longitude,
 INSERT INTO pothole (street_name, status_code, status_date, severity, longitude, latitude, report_date) VALUES ('Steve Ave', 'reported', '20080206', 1, 51.9937101, 27.0398601, '20170810');
 INSERT INTO pothole (street_name, status_code, status_date, severity, longitude, latitude, report_date) VALUES ('Ben Ct', 'reported', '20080203', 5, 873.1235867345, 456.9912345999999, '20170811');
 
+SELECT * FROM app_user
+
 INSERT INTO app_user (username, password) VALUES ('Sally_User', 'sally');
