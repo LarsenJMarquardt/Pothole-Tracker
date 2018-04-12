@@ -43,6 +43,22 @@ public class JdbcPotholeDAO implements PotholeDAO {
         return potholeList;
     }
     
+	@Override
+	public void reportPothole(Pothole newPothole) {
+		String sqlUpdate = "INSERT INTO app_user(pothole_id, street_name, status_date, longitude, latitude, report_date) "
+				+ " VALUES (?,?,?,?,?,?,?)  ";
+		jdbcTemplate.update(sqlUpdate, getNextPotHoleId(), newPothole.getStreetName(), newPothole.getStatusDate(), 
+				newPothole.getLongitude(), newPothole.getLatitude(), newPothole.getReportDate());
+	}
+    
+    public long getNextPotHoleId() {
+    	SqlRowSet nextIdResult = jdbcTemplate.queryForRowSet("SELECT nextval('pothole_pothole_id_seq')");
+		if (nextIdResult.next()) {
+			return nextIdResult.getLong(1);
+		} else {
+			throw new RuntimeException("Something went wrong with the pothole sequence");
+		}
+    }
    
     
     private Pothole mapRowToPothole(SqlRowSet results) {
@@ -57,6 +73,8 @@ public class JdbcPotholeDAO implements PotholeDAO {
         thePothole.setReportDate(results.getDate("report_date").toLocalDate());
         return thePothole;
     }
+
+
 
 	
 }
