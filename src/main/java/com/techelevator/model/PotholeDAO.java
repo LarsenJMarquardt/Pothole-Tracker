@@ -4,6 +4,6 @@ import java.util.List;
 
 public interface PotholeDAO {
 
-    List<Pothole> getListOfPotholes();
+    List<Pothole> getListOfPotholes(String orderBy);
 
 }

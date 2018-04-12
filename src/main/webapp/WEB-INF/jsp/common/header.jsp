@@ -39,7 +39,7 @@
 <c:url value="/potholes/allPotholes" var="allPotholesHref"/>
 <c:url value="/potholes/report" var="reportHref"/>
 <c:url value="/user/login" var="loginHref"/>
-<c:url value="/user/register" var="registerHref"/>
+<c:url value="/user/new" var="registerHref"/>
 <c:url value="/user/logout" var="logoutHref"/>
 
 <nav class="navbar navbar-inverse">
@@ -76,6 +76,9 @@
                 </li>
                 <li>
                     <a href="${loginHref}">Login</a>
+                </li>
+                <li>
+                    <a href="${registerHref}">Register</a>
                 </li>
             </ul>
         </div>

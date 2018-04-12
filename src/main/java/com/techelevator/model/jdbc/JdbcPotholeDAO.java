@@ -24,21 +24,30 @@ public class JdbcPotholeDAO implements PotholeDAO {
     }
 
     @Override
-    public List<Pothole> getListOfPotholes() {
+    public List<Pothole> getListOfPotholes(String orderBy) {
     		List<Pothole> potholeList = new ArrayList<Pothole>();
-		String getAllPotholes = "SELECT * FROM pothole";
+    		//avoid sql injection attack
+    		String sqlGetAllPotHoles = "";
+    		if (orderBy.equals("severity") || orderBy.equals("report_date") || orderBy.equals("status_code")) {
+			sqlGetAllPotHoles = "SELECT * FROM pothole ORDER BY " + orderBy + " DESC";
+    		} else if (orderBy.equals("street_name")) {
+    			sqlGetAllPotHoles = "SELECT * FROM pothole ORDER BY " + orderBy;
+    		}
+    		
 		Pothole thePothole;
-		SqlRowSet results = jdbcTemplate.queryForRowSet(getAllPotholes);
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllPotHoles);
 		while (results.next()) {
 			thePothole = mapRowToPothole(results);
 			potholeList.add(thePothole);
 		}
 		return potholeList;
     }
-
-
+    
+   
+    
     private Pothole mapRowToPothole(SqlRowSet results) {
         Pothole thePothole = new Pothole();
+        thePothole.setId(results.getLong("pothole_id"));
         thePothole.setStreetName(results.getString("street_name"));
         thePothole.setStatusCode(results.getString("status_code"));
         thePothole.setStatusDate(results.getDate("status_date").toLocalDate());
@@ -48,4 +57,6 @@ public class JdbcPotholeDAO implements PotholeDAO {
         thePothole.setReportDate(results.getDate("report_date").toLocalDate());
         return thePothole;
     }
+
+	
 }

@@ -17,3 +17,7 @@ CREATE TABLE pothole
 );
 
 INSERT INTO pothole (street_name, status_code, status_date, severity, longitude, latitude, report_date) VALUES ('Brianroad', 'reported', '20080203', 5, 123.1235891345, 534.9999999999999, '23431212');
+INSERT INTO pothole (street_name, status_code, status_date, severity, longitude, latitude, report_date) VALUES ('Katiedr', 'reported', '20080204', 5, 123.1235891345, 534.9999999999999, '20180808');
+INSERT INTO pothole (street_name, status_code, status_date, severity, longitude, latitude, report_date) VALUES ('Johnblvd', 'reported', '20080205', 5, 123.1235891345, 534.9999999999999, '20180809');
+INSERT INTO pothole (street_name, status_code, status_date, severity, longitude, latitude, report_date) VALUES ('Steveave', 'reported', '20080206', 5, 123.1235891345, 534.9999999999999, '20180810');
+INSERT INTO pothole (street_name, status_code, status_date, severity, longitude, latitude, report_date) VALUES ('Benct', 'reported', '20080203', 5, 123.1235891345, 534.9999999999999, '20180811');
