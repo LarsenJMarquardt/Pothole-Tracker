@@ -17,11 +17,11 @@ CREATE TABLE pothole
 
 CREATE TABLE app_user
 (
-  username varchar(32) NOT NULL,
+  user_name varchar(32) NOT NULL,
   password varchar(32) NOT NULL,
   salt varchar(255),
   is_employee boolean NOT NULL DEFAULT FALSE,
-  CONSTRAINT pk_app_user_username PRIMARY KEY (username)
+  CONSTRAINT pk_app_user_user_name PRIMARY KEY (user_name)
 );
 
 INSERT INTO pothole (street_name, status_code, status_date, severity, longitude, latitude, report_date) VALUES ('Brian Rd', 'reported', '20080203', 4, 16.81712, 40.912132999999, '20171212');
@@ -30,6 +30,4 @@ INSERT INTO pothole (street_name, status_code, status_date, severity, longitude,
 INSERT INTO pothole (street_name, status_code, status_date, severity, longitude, latitude, report_date) VALUES ('Steve Ave', 'reported', '20080206', 1, 51.9937101, 27.0398601, '20170810');
 INSERT INTO pothole (street_name, status_code, status_date, severity, longitude, latitude, report_date) VALUES ('Ben Ct', 'reported', '20080203', 5, 873.1235867345, 456.9912345999999, '20170811');
 
-SELECT * FROM app_user
-
-INSERT INTO app_user (username, password) VALUES ('Sally_User', 'sally');
+INSERT INTO app_user (user_name, password) VALUES ('Sally_User', 'sally');
