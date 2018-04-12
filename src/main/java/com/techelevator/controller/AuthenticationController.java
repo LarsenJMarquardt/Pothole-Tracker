@@ -33,6 +33,7 @@ public class AuthenticationController {
                         ModelMap model, HttpSession session) {
 		if(userDAO.searchForUsernameAndPassword(userName, password)) {
 			model.put("currentUser", userName);
+			session.setAttribute("currentUser", userName);
 			return "redirect:/";
 		} else {
 			return "redirect:/user/login";
@@ -40,10 +41,11 @@ public class AuthenticationController {
 
 	}
 
-	@RequestMapping(path="/user/logout", method= RequestMethod.POST)
-	public String logout(ModelMap model, HttpSession session) {
-		model.remove("currentUser");
-		session.removeAttribute("currentUser");
+	@RequestMapping(path="/user/logout", method= RequestMethod.GET)
+	public String logout(ModelMap map, HttpSession session) {
+		map.remove("currentUser");
+		map.clear();
+		session.invalidate();
 		return "redirect:/";
 	}
 }
