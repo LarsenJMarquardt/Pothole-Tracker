@@ -40,7 +40,7 @@ public class JdbcPotholeDAO implements PotholeDAO {
 			thePothole = mapRowToPothole(results);
 			potholeList.add(thePothole);
 		}
-		return potholeList;
+        return potholeList;
     }
     
    
