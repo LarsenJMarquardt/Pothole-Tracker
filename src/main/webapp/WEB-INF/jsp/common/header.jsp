@@ -80,6 +80,9 @@
                 <li>
                     <a href="${registerHref}">Register</a>
                 </li>
+                <li>
+                    <a href="${logoutHref}">Logout</a>
+                </li>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
