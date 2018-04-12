@@ -27,17 +27,19 @@ public class JdbcPotholeDAO implements PotholeDAO {
     public List<Pothole> getListOfPotholes(String orderBy) {
     		List<Pothole> potholeList = new ArrayList<Pothole>();
     		//avoid sql injection attack
-
-        String getAllPotholes = ((orderBy.equals("severity") || orderBy.equals("report_date") || orderBy.equals("status_code")) ?
-                "SELECT * FROM pothole ORDER BY " + orderBy + " DESC" : "SELECT * FROM pothole ORDER BY " + orderBy + " ASC");
-
-			Pothole thePothole;
-			SqlRowSet results = jdbcTemplate.queryForRowSet(getAllPotholes);
-			while (results.next()) {
-				thePothole = mapRowToPothole(results);
-				potholeList.add(thePothole);
-			}
-
+    		String sqlGetAllPotHoles = "";
+    		if (orderBy.equals("severity") || orderBy.equals("report_date") || orderBy.equals("status_code")) {
+			sqlGetAllPotHoles = "SELECT * FROM pothole ORDER BY " + orderBy + " DESC";
+    		} else if (orderBy.equals("street_name")) {
+    			sqlGetAllPotHoles = "SELECT * FROM pothole ORDER BY " + orderBy;
+    		}
+    		
+		Pothole thePothole;
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetAllPotHoles);
+		while (results.next()) {
+			thePothole = mapRowToPothole(results);
+			potholeList.add(thePothole);
+		}
 		return potholeList;
     }
     
