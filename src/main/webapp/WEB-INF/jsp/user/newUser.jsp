@@ -20,7 +20,7 @@
                     required : true,
                     minlength: 5,
                     maxlength: 128,
-                    complexPassword: true
+                    complexPassword: false //change to true later
                 },
                 confirmPassword : {
                     required : true,
@@ -54,7 +54,7 @@
                 <label for="confirmPassword">Confirm Password: </label>
                 <input type="password" id="confirmPassword" name="confirmPassword" placeHolder="Re-Type Password" class="form-control" />
             </div>
-            <button type="submit" class="btn btn-default">Create User</button>
+            <button type="submit" class="btn btn-primary">Create User</button>
         </div>
         <div class="col-sm-4"></div>
     </div>

@@ -58,5 +58,11 @@ public class JdbcPotholeDAO implements PotholeDAO {
         return thePothole;
     }
 
+	@Override
+	public void reportPothole(Pothole newPothole) {
+	
+		
+	}
+
 	
 }
