@@ -7,6 +7,25 @@
 
 
     <c:url var="reportHref" value="/potholes/report"/>
+    
+    <form:form method="POST" action="?" modelAttribute="newPothole">
+    		<div class="row">
+    			<div class="col-sm-4"></div>
+    				<div class="form-group">
+    					<label for="streetName">Street Name:</label>
+    					<form:input path="streetName" type="text" />
+    				</div>
+    				<div class="form-group">
+    					<label for="statusCode">Don't display this!</label>
+    					<form:input path="statusCode" type="text" />
+    				</div>
+    				
+    			</div>
+    
+    
+    </form:form>
+    
+    
 
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.
 
