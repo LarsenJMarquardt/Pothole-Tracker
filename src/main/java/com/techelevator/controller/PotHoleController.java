@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.time.LocalDate;
+
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -37,7 +39,14 @@ public class PotHoleController {
     }
     //new
     @RequestMapping(path = "/potholes/report", method = RequestMethod.POST)
-    public String reportPothole(@ModelAttribute("newPothole") Pothole newPothole, Model model) {
+    public String reportPothole(@RequestParam String streetName, @RequestParam double latitude, 
+    									@RequestParam double longitude, Model model) {
+    		
+    		Pothole newPothole = new Pothole();
+    		
+    		newPothole.setStreetName(streetName);
+    		newPothole.setLatitude(latitude);
+    		newPothole.setLongitude(longitude);
     		
     		potholeDAO.reportPothole(newPothole);
     		

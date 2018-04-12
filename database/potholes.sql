@@ -6,11 +6,11 @@ CREATE TABLE pothole
     pothole_id SERIAL NOT NULL,
     street_name varchar(200) NOT NULL,
     status_code varchar(10) NOT NULL DEFAULT 'reported',
-    status_date timestamp NOT NULL,
+    status_date timestamp NOT NULL DEFAULT now(),
     severity int NOT NULL DEFAULT 0,
     longitude decimal(16, 13) NOT NULL,
     latitude decimal(16, 13) NOT NULL,
-    report_date timestamp NOT NULL,
+    report_date timestamp NOT NULL DEFAULT now(),
 
     CONSTRAINT pk_pothole_id PRIMARY KEY (pothole_id)
 );

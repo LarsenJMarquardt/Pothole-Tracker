@@ -45,10 +45,13 @@ public class JdbcPotholeDAO implements PotholeDAO {
     
 	@Override
 	public void reportPothole(Pothole newPothole) {
-		String sqlUpdate = "INSERT INTO app_user(pothole_id, street_name, status_date, longitude, latitude, report_date) "
-				+ " VALUES (?,?,?,?,?,?,?)  ";
-		jdbcTemplate.update(sqlUpdate, getNextPotHoleId(), newPothole.getStreetName(), newPothole.getStatusDate(), 
-				newPothole.getLongitude(), newPothole.getLatitude(), newPothole.getReportDate());
+		String sqlUpdate = "INSERT INTO pothole (pothole_id, street_name, longitude, latitude) "
+				+ " VALUES (?,?,?,?)  ";
+		
+		
+		
+		jdbcTemplate.update(sqlUpdate, getNextPotHoleId(), newPothole.getStreetName(), 
+				newPothole.getLongitude(), newPothole.getLatitude());
 	}
     
     public long getNextPotHoleId() {
