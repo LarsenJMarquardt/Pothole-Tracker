@@ -12,12 +12,12 @@
     		<div class="row">
     			<div class="col-sm-4"></div>
     				<div class="form-group">
-    					<label for="streetName">Street Name:</label>
-    					<form:input path="streetName" type="text" />
+    					<%-- <label for="streetName">Street Name:</label>
+    					<form:select path="streetName" type="text" />
     				</div>
     				<div class="form-group">
     					<label for="statusCode">Don't display this!</label>
-    					<form:input path="statusCode" type="text" />
+    					<form:select path="statusCode" type="text" /> --%>
     				</div>
     				
     			</div>
