@@ -63,7 +63,7 @@ hr {
 }
 
 
-#allPotholes {
+.allPotholes {
 
 	border-style: solid;
 	border-radius: 10px;
@@ -91,9 +91,19 @@ hr {
 	 opacity: 0.5 !important;
 }
 
+#map {
+	margin: 0 auto;
+	height: 65%;
+}
+
 .modal-content{
-	background-image: url("/img/login.jpg");
+	background-image: url("../img/login.jpg");
+	opacity:0.87 !important;
 	color:white;
 }
 
+.severity-img {
+	max-width: 50px;
+	max-height: 50px
+}
 
