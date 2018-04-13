@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width"/>
-    <title>Crater Rater</title>
+    <title>Pave Pal</title>
 
     <c:url value="/css/style.css" var="cssHref"/>
     <link rel="stylesheet" href="${cssHref}">
@@ -197,7 +197,6 @@
         </div>
 
     </div>
-</div>
 </div>
 
 </body>
