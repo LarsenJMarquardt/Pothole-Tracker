@@ -87,6 +87,9 @@ hr {
 	padding: 0px;
 
 }
+.modal-backdrop.in{
+	 opacity: 0.5 !important;
+}
 
 .modal-content{
 	background-image: url("/img/login.jpg");
