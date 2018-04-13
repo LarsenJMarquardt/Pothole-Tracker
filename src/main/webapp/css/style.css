@@ -88,6 +88,11 @@ hr {
 
 }
 
+#map {
+	margin: 0 auto;
+	height: 65%;
+}
+
 .modal-content{
 	background-image: url("../img/login.jpg");
 	opacity:0.87 !important;
@@ -98,5 +103,4 @@ hr {
 	max-width: 50px;
 	max-height: 50px
 }
-
 
