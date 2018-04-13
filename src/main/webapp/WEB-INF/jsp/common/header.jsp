@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width"/>
-    <title>Crater Rater</title>
+    <title>Pave Pal</title>
 
     <c:url value="/css/style.css" var="cssHref"/>
     <link rel="stylesheet" href="${cssHref}">
@@ -86,15 +86,22 @@
                     <a href="#registerModal" data-toggle="modal" data-target="#registerModal">Register</a>
                 </li>
 
-                <li>
-                    <a href="#loginModal" data-toggle="modal" data-target="#loginModal">Login</a>
-                    <%--<a id="login" href="${loginHref}">Login</a>--%>
-                </li>
 
-                <li>
-                    <a href="${logoutHref}">Logout</a>
+                <c:choose>
+                    <c:when test="${currentUser != null}">
+                        <li>
+                            <a href="${logoutHref}">Logout</a>
+                        </li>
+                    </c:when>
+                    <c:otherwise>
+                        <li>
+                            <a href="#loginModal" data-toggle="modal" data-target="#loginModal">Login</a>
+                                <%--<a id="login" href="${loginHref}">Login</a>--%>
+                        </li>
 
-                </li>
+                    </c:otherwise>
+
+                </c:choose>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
