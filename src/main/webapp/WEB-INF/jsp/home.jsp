@@ -4,4 +4,6 @@
 
 <h1>Welcome to Pave Pal!</h1>
 
+
+
 <c:import url="/WEB-INF/jsp/common/footer.jsp" />
