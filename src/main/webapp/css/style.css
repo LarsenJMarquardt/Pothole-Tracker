@@ -89,7 +89,7 @@ hr {
 }
 
 .modal-content{
-	background-image: url("/img/login.jpg");
+	background-image: url("../img/login.jpg");
 	opacity:0.87 !important;
 	color:white;
 }

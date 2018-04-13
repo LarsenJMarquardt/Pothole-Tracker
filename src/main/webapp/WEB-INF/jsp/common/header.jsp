@@ -130,7 +130,7 @@
                         <%--<div class="checkbox">--%>
                             <%--<label><input type="checkbox" value="" checked>Remember me</label>--%>
                         <%--</div>--%>
-                        <button type="submit" class="btn btn-success btn-block"><span
+                        <button type="submit" class="btn btn-warning btn-block"><span
                                 class="glyphicon glyphicon-off"></span> Login
                         </button>
                     </form>
@@ -176,7 +176,7 @@
                     <%--<div class="checkbox">--%>
                     <%--<label><input type="checkbox" value="" checked>Remember me</label>--%>
                     <%--</div>--%>
-                    <button type="submit" class="btn btn-success btn-block"><span
+                    <button type="submit" class="btn btn-warning btn-block"><span
                             class="glyphicon glyphicon-off"></span> Create User
                     </button>
                 </form>
