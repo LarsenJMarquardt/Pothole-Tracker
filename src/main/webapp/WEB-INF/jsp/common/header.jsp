@@ -58,8 +58,6 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="${homePageHref}">
-            		<c:url var="placeholderImgLink" value="/img/placeholder.png" />
-                <img src="${placeholderImgLink}" alt="Pothole Tracker" width="120">
             </a>
         </div>
 
@@ -67,7 +65,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav navbar-left">
 
                 <li class="active">
                     <a href="${homePageHref}">Home</a>
@@ -79,6 +77,7 @@
                     <a href="${reportHref}">Report Pothole</a>
                 </li>
             </ul>
+
             <ul class="nav navbar-nav navbar-right">
                 <li>
                     <%--<a href="${registerHref}">Register</a>--%>
@@ -114,7 +113,7 @@
 
     <!-- Modal -->
     <div class="modal fade" id="loginModal" role="dialog">
-        <c:url var="formAction" value="/user/login" />
+        <c:url var="formAction" value="/user/login"/>
         <div class="modal-dialog">
 
             <!-- Modal content-->
@@ -127,14 +126,16 @@
                     <form method="POST" action="${formAction}">
                         <div class="form-group">
                             <label for="userName"><span class="glyphicon glyphicon-user"></span> Username</label>
-                            <input type="text" id="userName" name="userName" placeHolder="User Name" class="form-control" />
+                            <input type="text" id="userName" name="userName" placeHolder="User Name"
+                                   class="form-control"/>
                         </div>
                         <div class="form-group">
                             <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-                            <input type="password" id="password" name="password" placeHolder="Password" class="form-control" />
+                            <input type="password" id="password" name="password" placeHolder="Password"
+                                   class="form-control"/>
                         </div>
                         <%--<div class="checkbox">--%>
-                            <%--<label><input type="checkbox" value="" checked>Remember me</label>--%>
+                        <%--<label><input type="checkbox" value="" checked>Remember me</label>--%>
                         <%--</div>--%>
                         <button type="submit" class="btn btn-warning btn-block"><span
                                 class="glyphicon glyphicon-off"></span> Login
@@ -145,7 +146,8 @@
                     <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span
                             class="glyphicon glyphicon-remove"></span> Cancel
                     </button>
-                    <p>Not a member? <a href="#registerModal" data-toggle="modal" data-target="#registerModal" data-dismiss="modal">Register</a></p>
+                    <p>Not a member? <a href="#registerModal" data-toggle="modal" data-target="#registerModal"
+                                        data-dismiss="modal">Register</a></p>
                 </div>
             </div>
 
@@ -153,7 +155,7 @@
     </div>
 </div>
 <div class="modal fade" id="registerModal" role="dialog">
-    <c:url var="registerFormAction" value="/user" />
+    <c:url var="registerFormAction" value="/user"/>
     <div class="modal-dialog">
 
         <!-- Modal content-->
@@ -166,17 +168,20 @@
                 <form method="POST" action="${registerFormAction}">
                     <div class="form-group">
                         <label for="userName"><span class="glyphicon glyphicon-user"></span> Username</label>
-                        <input type="text" id="registerUserName" name="userName" placeHolder="User Name" class="form-control" />
+                        <input type="text" id="registerUserName" name="userName" placeHolder="User Name"
+                               class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
 
-                        <input type="password" id="registerPassword" name="password" placeHolder="Password" class="form-control" />
+                        <input type="password" id="registerPassword" name="password" placeHolder="Password"
+                               class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
 
-                        <input type="password" id="registerConfirmPassword" name="confirmPassword" placeHolder="Re-Type Password" class="form-control" />
+                        <input type="password" id="registerConfirmPassword" name="confirmPassword"
+                               placeHolder="Re-Type Password" class="form-control"/>
                     </div>
 
                     <%--<div class="checkbox">--%>
