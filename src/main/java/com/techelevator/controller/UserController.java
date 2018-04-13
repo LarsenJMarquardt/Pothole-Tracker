@@ -30,7 +30,7 @@ public class UserController {
 	@RequestMapping(path="/user", method= RequestMethod.POST)
 	public String createUser(@RequestParam String userName, @RequestParam String password) {
 		userDAO.saveUser(userName, password);
-		return "redirect:/user/login"; //this was missing /user
+		return "redirect:/user/login"; 
 	}
 
 	@RequestMapping(path="/user/{userName}", method=RequestMethod.GET)

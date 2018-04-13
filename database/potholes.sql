@@ -5,12 +5,12 @@ CREATE TABLE pothole
 (
     pothole_id SERIAL NOT NULL,
     street_name varchar(200) NOT NULL,
-    status_code varchar(10) NOT NULL,
-    status_date timestamp NOT NULL,
-    severity int NOT NULL,
+    status_code varchar(10) NOT NULL DEFAULT 'reported',
+    status_date timestamp NOT NULL DEFAULT now(),
+    severity int NOT NULL DEFAULT 0,
     longitude decimal(16, 13) NOT NULL,
     latitude decimal(16, 13) NOT NULL,
-    report_date timestamp NOT NULL,
+    report_date timestamp NOT NULL DEFAULT now(),
 
     CONSTRAINT pk_pothole_id PRIMARY KEY (pothole_id)
 );
@@ -31,3 +31,5 @@ INSERT INTO pothole (street_name, status_code, status_date, severity, longitude,
 INSERT INTO pothole (street_name, status_code, status_date, severity, longitude, latitude, report_date) VALUES ('Ben Ct', 'reported', '20080203', 5, 873.1235867345, 456.9912345999999, '20170811');
 
 INSERT INTO app_user (user_name, password) VALUES ('Sally_User', 'sally');
+
+INSERT INTO pothole (street_name, status_date, longitude, latitude, report_date) VALUES ('Test St', '20090909', 873.1235867345, 456.9912345999999, '20090909');
