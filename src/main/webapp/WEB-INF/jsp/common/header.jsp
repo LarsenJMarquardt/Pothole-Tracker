@@ -59,7 +59,8 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="${homePageHref}">
-                <img src="/img/placeholder.png" alt="Crater Rater" width="120">
+            		<c:url var="placeholderImgLink" value="/img/placeholder.png" />
+                <img src="${placeholderImgLink}" alt="Pothole Tracker" width="120">
             </a>
         </div>
 
