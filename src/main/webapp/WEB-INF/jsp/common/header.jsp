@@ -138,7 +138,7 @@
                     <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span
                             class="glyphicon glyphicon-remove"></span> Cancel
                     </button>
-                    <p>Not a member? <a href="#registerModal" data-toggle="modal" data-target="#registerModal">Register</a></p>
+                    <p>Not a member? <a href="#registerModal" data-toggle="modal" data-target="#registerModal" data-dismiss="modal">Register</a></p>
                 </div>
             </div>
 
