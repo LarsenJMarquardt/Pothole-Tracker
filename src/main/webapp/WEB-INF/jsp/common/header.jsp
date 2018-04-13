@@ -78,14 +78,20 @@
                 <li>
                     <a href="${reportHref}">Report Pothole</a>
                 </li>
-                <li>
-                    <a id="login" href="${loginHref}">Login</a>
-                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
                 <li>
                     <a href="${registerHref}">Register</a>
                 </li>
+
+                <li>
+                    <a href="#myModal" data-toggle="modal" data-target="#myModal">Login</a>
+                    <%--<a id="login" href="${loginHref}">Login</a>--%>
+                </li>
+
                 <li>
                     <a href="${logoutHref}">Logout</a>
+
                 </li>
             </ul>
         </div>
@@ -94,9 +100,9 @@
     <!-- /.container-fluid -->
 </nav>
 <div class="container">
-    <h2>Modal Login Example</h2>
     <!-- Trigger the modal with a button -->
-    <button type="button" class="btn btn-default btn-lg" id="myBtn">Login</button>
+
+    <%--<button type="button" class="btn btn-default btn-lg" id="myBtn">Login</button>--%>
 
     <!-- Modal -->
     <div class="modal fade" id="myModal" role="dialog">
@@ -121,11 +127,15 @@
                         <div class="checkbox">
                             <label><input type="checkbox" value="" checked>Remember me</label>
                         </div>
-                        <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
+                        <button type="submit" class="btn btn-success btn-block"><span
+                                class="glyphicon glyphicon-off"></span> Login
+                        </button>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
+                    <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span
+                            class="glyphicon glyphicon-remove"></span> Cancel
+                    </button>
                     <p>Not a member? <a href="#">Sign Up</a></p>
                     <p>Forgot <a href="#">Password?</a></p>
                 </div>

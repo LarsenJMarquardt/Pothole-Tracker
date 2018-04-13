@@ -88,4 +88,9 @@ hr {
 
 }
 
+.modal-content{
+	background-image: url("/img/login.jpg");
+	color:white;
+}
+
 
