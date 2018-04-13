@@ -31,7 +31,6 @@
     <!-- BOOTSTRAPPER -->
     <script src="${jsHref}/bootstrap.min.js"></script>
 
-
 </head>
 
 <body>

@@ -87,3 +87,8 @@ hr {
 	padding: 0px;
 
 }
+
+#map {
+	margin: 0 auto;
+	height: 65%;
+}

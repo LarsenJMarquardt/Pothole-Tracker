@@ -6,11 +6,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-
                 <h1>Pothole List</h1>
             </div>
         </div>
     </div>
+
+    <div id="map"></div>
+
 
     <c:url var="orderBySeverityLink" value="/potholes/allPotholes">
         <c:param name="orderBy" value="severity"/>
@@ -83,5 +85,53 @@
         </c:forEach>
     </div>
 </div>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhZ4dsKOQPtb3_-VdaqZ9dfYtrjhHC0-I&callback=initMap"
+        async defer></script>
+
+<script>
+    var map;
+
+    var columbusCenterPos = {lat: 39.9612, lng: -82.9988};
+
+    function initMap() {
+        directionsService = new google.maps.DirectionsService();
+        directionsDisplay = new google.maps.DirectionsRenderer();
+        var mapOptions = {
+            center: new google.maps.LatLng(columbusCenterPos),
+            zoom: 13,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        map = new google.maps.Map(document.getElementById("map"),
+            mapOptions);
+
+        map.addListener("click", function (event) {
+            create_Marker(event.latLng, map);
+        });
+
+        function create_Marker(position, map) {
+            var marker = new google.maps.Marker({
+                position: position,
+                map: map
+                // draggable: DragAble
+            });
+            map.panTo(position);
+        }
+    }
+
+    // Function to display pothole information on the map
+    marker.addListener("click", function() {
+        infoWindow.open(map, marker);
+    });
+
+    //function resize the google maps window while keeping the current center point
+    google.maps.event.addDomListener(window, "resize", function() {
+        var center = map.getCenter();
+        google.maps.event.trigger(map, "resize");
+        map.setCenter(center);
+    });
+
+
+</script>
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp"/>
