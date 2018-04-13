@@ -73,7 +73,7 @@
                             <p> <b>Status Code: </b><c:out value="${pothole.statusCode}"/></p>
                         </div>
                         <div class="col-md-4">
-                            <p><b>Severity: </b> <c:out value=" ${pothole.severity}"/></p>
+                            <p><b>Severity: </b> <img src="/img/${pothole.severity}.png" alt="Severity"> <c:out value=" ${pothole.severity}"/></p>
                         </div>
                     </div>
                     <hr>
