@@ -25,17 +25,23 @@
 
     <c:url value="/js" var="jsHref"/>
     <script src="${jsHref}/jquery.min.js"></script>
-
     <script src="${jsHref}/jquery.validate.min.js"></script>
     <script src="${jsHref}/additional-methods.min.js"></script>
     <!-- BOOTSTRAPPER -->
     <script src="${jsHref}/bootstrap.min.js"></script>
     <script src="${jsHref}/modal.js"></script>
-    <script src="script.js"></script>
+    <script src="${jsHref}/script.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <script>
+
+        $('.nav > li').click(function() {
+            $(this).addClass('active').siblings().removeClass('active');
+        });
+    </script>
 </head>
 
 <body>
@@ -45,7 +51,7 @@
 <c:url value="/user/login" var="loginHref"/>
 <c:url value="/user/new" var="registerHref"/>
 <c:url value="/user/logout" var="logoutHref"/>
-                    <c:url var="logoImgLink" value="/img/logo.png" />
+<c:url var="logoImgLink" value="/img/logo.png"/>
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
@@ -149,9 +155,10 @@
                             class="glyphicon glyphicon-remove"></span> Cancel
                     </button>
                     <p id="registerText">Not a member?
-                    <button type="submit" class="btn btn-success btn-default pull-right" data-dismiss="modal" data-toggle="modal" data-target="#registerModal"><span
-                            class="glyphicon glyphicon-plus"></span> Register
-                    </button>
+                        <button type="submit" class="btn btn-success btn-default pull-right" data-dismiss="modal"
+                                data-toggle="modal" data-target="#registerModal"><span
+                                class="glyphicon glyphicon-plus"></span> Register
+                        </button>
                 </div>
             </div>
 
