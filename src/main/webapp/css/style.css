@@ -123,3 +123,7 @@ hr {
 #home{
 	background-color: lightgray;
 }
+
+.error {
+	color : red;
+}
