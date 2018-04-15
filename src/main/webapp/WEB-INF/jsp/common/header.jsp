@@ -150,8 +150,7 @@
                     </button>
                     <p id="registerText">Not a member?
                         <button type="submit" class="btn btn-success btn-default pull-right" data-dismiss="modal"
-                                data-toggle="modal" data-target="#registerModal"><span
-                                class="glyphicon glyphicon-plus"></span> Register
+                                data-toggle="modal" data-target="#registerModal"> Register
                         </button>
                 </div>
             </div>
@@ -183,7 +182,7 @@
                                class="form-control"/>
                     </div>
                     <div class="form-group">
-                        <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                        <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Confirm Password</label>
 
                         <input type="password" id="registerConfirmPassword" name="confirmPassword"
                                placeHolder="Re-Type Password" class="form-control"/>
