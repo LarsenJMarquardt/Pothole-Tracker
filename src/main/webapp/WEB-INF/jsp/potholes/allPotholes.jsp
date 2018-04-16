@@ -150,11 +150,10 @@
 </div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhZ4dsKOQPtb3_-VdaqZ9dfYtrjhHC0-I&callback=initMap"
-        async defer></script>
+		async defer type="text/javascript"></script>
 
 <script>
     var map;
-
     var columbusCenterPos = {lat: 39.9612, lng: -82.9988};
 
     function initMap() {
@@ -163,27 +162,39 @@
         var mapOptions = {
             center: new google.maps.LatLng(columbusCenterPos),
             zoom: 13,
-            mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
+            mapTypeId: google.maps.MapTypeId.ROADMAP,
+            streetViewControl: false
+        }
         map = new google.maps.Map(document.getElementById("map"),
             mapOptions);
-
-        map.addListener("click", function (event) {
-            create_Marker(event.latLng, map);
-        });
-
-        function create_Marker(position, map) {
-            var marker = new google.maps.Marker({
-                position: position,
-                map: map
-                // draggable: DragAble
-            });
-            map.panTo(position);
-        }
     }
 
-    // Function to display pothole information on the map
-    marker.addListener("click", function() {
+
+
+    map.addListener("click", function (event) {
+        create_Marker(event.latLng, map);
+    });
+
+    function create_Marker(position, map, feature) {
+        var marker = new google.maps.Marker({
+            position: position,
+            // icon: icons[feature.type].icon,
+            map: map,
+            // draggable: DragAble
+        });
+        map.panTo(position);
+    }
+
+    var contentString = '<div id="content">' + '<div id="siteNotice">'+
+        '</div>'+
+        '<h1 id="firstHeading" class="firstHeading">This is a Pothole!</h1>'+
+        '</div>';
+
+    var infoWindow = new google.maps.infoWindow({
+        content: contentString
+    });
+
+    marker.addListener(marker, "click", function() {
         infoWindow.open(map, marker);
     });
 
@@ -195,6 +206,12 @@
     });
 
 
+            // var icons = {
+            //     initialReport: { icon: 'map_0.png'}, severityLevel1: { icon: 'map_1.png'},
+            //     severityLevel2: { icon: 'map_2.png'}, severityLevel3: {icon: 'map_3.png'},
+            //     severityLevel4: {icon: 'map_4.png'}, severityLevel5: {icon: 'map_5.png'} };
+
+            // Function to display pothole information on the map
 </script>
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp"/>
