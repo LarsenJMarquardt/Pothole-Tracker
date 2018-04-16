@@ -1,5 +1,7 @@
 </main>
-<footer class="navbar navbar-fixed-bottom btn-warning">
+
+
+<footer>
     <p class="copyright">Copyright Team Delta 2018</p>
 </footer>
 </body>
