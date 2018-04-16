@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -53,6 +54,26 @@ public class JdbcPotholeDAO implements PotholeDAO {
 		jdbcTemplate.update(sqlUpdate, getNextPotHoleId(), newPothole.getStreetName(), 
 				newPothole.getLongitude(), newPothole.getLatitude());
 	}
+	
+	
+	@Override
+	public Pothole getPotholeById(long id) {
+		String sqlGetUserPothole = "SELECT * FROM pothole WHERE pothole_id = ?";
+		Pothole thePothole = new Pothole();
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetUserPothole, id);
+		while(results.next()) {
+			thePothole = mapRowToPothole(results);
+		}
+		return thePothole;
+	}
+	
+	public void updatePotholeById(String statusCode, LocalDate statusDate, int severity, long id) {
+		String sqlUpdatePothole = "UPDATE pothole " + 
+				"SET status_code = ?, status_date = ?, severity = ? " + 
+				"WHERE pothole_id = ? ";
+		jdbcTemplate.update(sqlUpdatePothole, statusCode, statusDate, severity, id);
+	}
     
     public long getNextPotHoleId() {
     	SqlRowSet nextIdResult = jdbcTemplate.queryForRowSet("SELECT nextval('pothole_pothole_id_seq')");
@@ -76,6 +97,8 @@ public class JdbcPotholeDAO implements PotholeDAO {
         thePothole.setReportDate(results.getDate("report_date").toLocalDate());
         return thePothole;
     }
+
+	
 
 
 

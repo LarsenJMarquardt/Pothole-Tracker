@@ -38,7 +38,7 @@ public class JdbcUserDAO implements UserDAO {
 		
 		String result = (String) jdbcTemplate.queryForObject(sqlIsEmployee, new Object[] {userName}, String.class);
 		
-		if (result.equals("true")) {
+		if (result.equals("t")) {
 			return true;
 		}
 		

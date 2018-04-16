@@ -24,7 +24,7 @@
     					<label for="longitude">Longitude:</label>
     					<input type="text" name="longitude" id="longitude" placeHolder="Longitude" class="form-control" />
     				</div>
-    				<button type="submit" class="btn btn-primary">Report Pothole</button>
+    				<button type="submit" class="btn btn-warning">Report Pothole</button>
     			</div>
     				
     				

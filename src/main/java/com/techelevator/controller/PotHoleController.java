@@ -14,27 +14,76 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 import javax.servlet.http.HttpSession;
 
 @Controller
-@SessionAttributes("currentUser")
+@SessionAttributes({"currentUser", "isEmployee"})
 public class PotHoleController {
 
     @Autowired
     PotholeDAO potholeDAO;
 
     @RequestMapping(path = "/potholes/allPotholes", method = RequestMethod.GET)
-    public String showAllPotholes(Model model, @RequestParam(required = false) String orderBy) {
-        if (orderBy == null) {
-            orderBy = "report_date";
+    public String showAllPotholes(Model model, @RequestParam(required = false) String orderBy, HttpSession session) {
+    
+	    	if (session.getAttribute("isEmployee") != null) {
+		    	if ((boolean)session.getAttribute("isEmployee")) {
+		    		return "redirect:/potholes/employeePotholeList";
+		    	}
+	    	}
+	    	
+	    	if (orderBy == null) {
+	            orderBy = "report_date";
         }
 
         model.addAttribute("allPotholes", potholeDAO.getListOfPotholes(orderBy));
 
         return "/potholes/allPotholes";
     }
+    
+    @RequestMapping(path = "/potholes/employeePotholeList", method = RequestMethod.GET)
+    public String getEmployeePotholeList(Model model, HttpSession session, @RequestParam(required = false) String orderBy) {
+    	
+	    	if ((boolean)session.getAttribute("isEmployee") == false) {
+	    		return "redirect:/potholes/allPotholes";
+	    	}
+	    	
+	    	if (orderBy == null) {
+	            orderBy = "report_date";
+	    }
 
+	    model.addAttribute("allPotholes", potholeDAO.getListOfPotholes(orderBy));
+	    	
+    	
+    		return "/potholes/employeePotholeList";
+    }
+    
+    
+    
+    @RequestMapping(path = "/potholes/employeePotholeUpdate", method = RequestMethod.GET)
+    public String employeeModifyPotholeGet(Model model, @RequestParam long potholeId) {
+        
+    		model.addAttribute("pothole", potholeDAO.getPotholeById(potholeId));
+    	
+        return "/potholes/employeePotholeUpdate";
+    }
+    
+    @RequestMapping(path = "/potholes/somethingElse", method = RequestMethod.POST)
+    public String employeeModifyPotholePost(Model model, @RequestParam long potholeId, 
+     		@RequestParam int severity, @RequestParam String statusCode) {
+    		
+    		
+//    		@SuppressWarnings("deprecation")
+//			LocalDate updatedDate = LocalDate.of(statusDate.getYear(), statusDate.getMonth(), statusDate.getDay());
+//        @RequestParam Date statusDate
+//    		potholeDAO.updatePotholeById(statusCode, updatedDate, severity, potholeId);
+    	
+        return "redirect:/potholes/employeePotholeList";
+    }
+    
+    
     @RequestMapping(path = "/potholes/report", method = RequestMethod.GET)
     public String showReport(Model model, HttpSession session) {
     	
@@ -45,10 +94,8 @@ public class PotHoleController {
     		} else {
     			return "redirect:/user/login";
     		}
-
-        
     }
-    //new
+
     @RequestMapping(path = "/potholes/report", method = RequestMethod.POST)
     public String reportPothole(@RequestParam String streetName, @RequestParam double latitude, 
     									@RequestParam double longitude, Model model) {

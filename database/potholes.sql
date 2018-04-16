@@ -31,5 +31,8 @@ INSERT INTO pothole (street_name, status_code, status_date, severity, longitude,
 INSERT INTO pothole (street_name, status_code, status_date, severity, longitude, latitude, report_date) VALUES ('Ben Ct', 'reported', '20080203', 5, 873.1235867345, 456.9912345999999, '20170811');
 
 INSERT INTO app_user (user_name, password) VALUES ('Sally_User', 'sally');
+INSERT INTO app_user (user_name, password, is_employee) VALUES ('Not_Sally', 'notsally', true);
 
 INSERT INTO pothole (street_name, status_date, longitude, latitude, report_date) VALUES ('Test St', '20090909', 873.1235867345, 456.9912345999999, '20090909');
+
+SELECT * FROM app_user
