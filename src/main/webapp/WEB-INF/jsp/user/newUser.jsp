@@ -4,41 +4,9 @@
 
 
 
-<c:url var="pwValidator" value="/js/passwordValidation.js" />
-<script src="${pwValidator}"></script>
-<script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-
-        $("form").validate({
-
-            rules : {
-                userNameT : {
-                    required : true
-                },
-                passwordT : {
-                    required : true,
-                    minlength: 5,
-                    maxlength: 128,
-                    complexPassword: false //change to true later
-                },
-                confirmPasswordT : {
-                    required : true,
-                    equalTo : "#password"
-                }
-            },
-            messages : {
-                confirmPasswordT : {
-                    equalTo : "Passwords do not match"
-                }
-            },
-            errorClass : "error"
-        });
-    });
-</script>
 
 <c:url var="formAction" value="/user" />
-<form method="POST" action="${formAction}">
+<form method="POST" action="${formAction}" id ="form">
     <div class="row">
         <div class="col-sm-4"></div>
         <div class="col-sm-4">
