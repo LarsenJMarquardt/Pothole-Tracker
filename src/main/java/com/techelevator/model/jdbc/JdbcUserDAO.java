@@ -32,6 +32,18 @@ public class JdbcUserDAO implements UserDAO {
 
 		return jdbcTemplate.queryForRowSet(sqlSearchForUser, userName.toUpperCase(), password).next();
 	}
+	
+	public boolean seeIfUserIsEmployee(String userName) {
+		String sqlIsEmployee = "SELECT is_employee FROM app_user WHERE user_name = ?";
+		
+		String result = (String) jdbcTemplate.queryForObject(sqlIsEmployee, new Object[] {userName}, String.class);
+		
+		if (result.equals("true")) {
+			return true;
+		}
+		
+		return false;
+	}
 
 	@Override
 	public void updatePassword(String userName, String password) {

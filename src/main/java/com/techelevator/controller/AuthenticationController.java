@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import javax.servlet.http.HttpSession;
 
 @Controller
-@SessionAttributes("currentUser")
+@SessionAttributes({"currentUser", "isEmployee"})
 public class AuthenticationController {
 
 	private UserDAO userDAO;
@@ -34,6 +34,7 @@ public class AuthenticationController {
 		if(userDAO.searchForUsernameAndPassword(userName, password)) {
 			model.put("currentUser", userName);
 			session.setAttribute("currentUser", userName);
+			session.setAttribute("isEmployee", userDAO.seeIfUserIsEmployee(userName));
 			return "redirect:/";
 		} else {
 			return "redirect:/user/login";
