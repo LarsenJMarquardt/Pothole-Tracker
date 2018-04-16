@@ -10,15 +10,16 @@
 <%--<h3>"The road to well is paved over bad indentions"</h3>--%>
 
 <div id="home">
-    <div class="container-fluid">
+    <div class="container-fluid" style="background: white">
         <div class="row">
-            <div class="col-md-12">
-        <img src="${logoImgLink}" alt="Pave Pal" width="25%">
+            <div class="col-md-4">
+
+        <img src="${logoImgLink}" alt="PavePal" width="25%">
         </div>
         <div class="row">
         </div>
-            <div class="col-md-12">
-                <h1>Welcome to Pave Pal!</h1>
+            <div class="col-md-8">
+                <h1>Welcome to PavePal!</h1>
 
                 <h3>"The road to well is paved over bad indentions"</h3>
             </div>

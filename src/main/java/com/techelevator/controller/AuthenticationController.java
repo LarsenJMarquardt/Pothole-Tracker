@@ -42,6 +42,11 @@ public class AuthenticationController {
 
 	}
 
+	@RequestMapping(path="/user/newUser", method= RequestMethod.GET)
+	public String displayNewUserForm() {
+		return "/user/newUser";
+	}
+
 	@RequestMapping(path="/user/logout", method= RequestMethod.GET)
 	public String logout(ModelMap map, HttpSession session) {
 		map.remove("currentUser");
