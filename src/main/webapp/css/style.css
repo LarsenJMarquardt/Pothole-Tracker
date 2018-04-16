@@ -14,7 +14,8 @@ img {
 body {
 	text-align: center; 
     font-size: 18px;
-    margin: 0 auto; 
+    margin: 0 auto;
+	background-color: lightgrey;
 }
 
 p { 
@@ -62,6 +63,10 @@ hr {
 	width: 90%;
 }
 
+.navbar-inverse {
+	/*background-image: linear-gradient(to right top, #1f1f1f, #272727, #2f2f2f, #373737, #3f3f3f);*/
+	background-image: linear-gradient(to top, #141414, #1e1e1e, #292828, #343233, #3f3d3d);
+}
 
 .allPotholes {
 
@@ -87,6 +92,9 @@ hr {
 	padding: 0px;
 
 }
+.modal-backdrop.in{
+	 opacity: 0.5 !important;
+}
 
 #map {
 	margin: 0 auto;
@@ -94,7 +102,7 @@ hr {
 }
 
 .modal-content{
-	background-image: url("../img/login.jpg");
+	background-image: url("../img/loginBackground.png");
 	opacity:0.87 !important;
 	color:white;
 }
@@ -104,3 +112,18 @@ hr {
 	max-height: 50px
 }
 
+#registerText{
+	color:white;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+#registerText a {
+	color:white;
+}
+
+#home{
+	background-color: lightgray;
+}
+
+.error {
+	color : red;
+}
