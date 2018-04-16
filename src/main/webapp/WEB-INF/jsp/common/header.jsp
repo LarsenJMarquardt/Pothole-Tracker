@@ -30,12 +30,13 @@
     <!-- BOOTSTRAPPER -->
     <script src="${jsHref}/bootstrap.min.js"></script>
     <script src="${jsHref}/modal.js"></script>
-    <%--<script src="${jsHref}/script.js"></script>--%>
+    <script src="${jsHref}/script.js"></script>
+    <script src="${jsHref}/passwordValidation.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+    <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
 </head>
 
 <body>
@@ -127,13 +128,13 @@
                 <div class="modal-body" style="padding:40px 50px;">
                     <form method="POST" action="${formAction}">
                         <div class="form-group">
-                            <label for="userName"><span class="glyphicon glyphicon-user"></span> Username</label>
-                            <input type="text" id="userName" name="userName" placeHolder="User Name"
+                            <label for="loginUserName"><span class="glyphicon glyphicon-user"></span> Username</label>
+                            <input type="text" id="loginUserName" name="userName" placeHolder="User Name"
                                    class="form-control"/>
                         </div>
                         <div class="form-group">
-                            <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-                            <input type="password" id="password" name="password" placeHolder="Password"
+                            <label for="loginPassword"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                            <input type="password" id="loginPassword" name="password" placeHolder="Password"
                                    class="form-control"/>
                         </div>
                         <%--<div class="checkbox">--%>
@@ -169,22 +170,23 @@
                 <h4><span class="glyphicon glyphicon-lock"></span> Register</h4>
             </div>
             <div class="modal-body" style="padding:40px 50px;">
-                <form method="POST" action="${registerFormAction}">
+                <form method="POST" action="${registerFormAction}" id = "form">
                     <div class="form-group">
                         <label for="userName"><span class="glyphicon glyphicon-user"></span> Username</label>
-                        <input type="text" id="registerUserName" name="userName" placeHolder="User Name"
+                        <input type="text" id="UserName" name="userName" placeHolder="User Name"
                                class="form-control"/>
                     </div>
                     <div class="form-group">
                         <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
 
-                        <input type="password" id="registerPassword" name="password" placeHolder="Password"
+                        <input type="password" id="password" name="password" placeHolder="Password"
                                class="form-control"/>
                     </div>
                     <div class="form-group">
-                        <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Confirm Password</label>
+                        <label for="password"><span class="glyphicon glyphicon-eye-open"></span> Confirm
+                            Password</label>
 
-                        <input type="password" id="registerConfirmPassword" name="confirmPassword"
+                        <input type="password" id="confirmPassword" name="confirmPassword"
                                placeHolder="Re-Type Password" class="form-control"/>
                     </div>
 
