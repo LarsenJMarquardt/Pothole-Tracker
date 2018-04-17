@@ -73,14 +73,8 @@ public class PotHoleController {
         return "/potholes/employeePotholeUpdate";
     }
     
-<<<<<<< HEAD
-    @RequestMapping(path = "/potholes/somethingElse", method = RequestMethod.POST)
-    public String employeeModifyPotholePost(Pothole pothole) {
-=======
     @RequestMapping(path = "/potholes/employeePotholeUpdate", method = RequestMethod.POST)
     public String employeeModifyPotholePost(@RequestParam long potholeId, @RequestParam int severity, @RequestParam String statusCode, @RequestParam("statusDate") @DateTimeFormat(pattern="yyyy-MM-dd") Date statusDate) {
->>>>>>> aa82892821d4d4eea907f1c988e55d3fa146e62a
-    		
     	
 		LocalDate localDate = statusDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
     		
