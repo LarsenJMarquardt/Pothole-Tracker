@@ -47,9 +47,7 @@ public class JdbcPotholeDAO implements PotholeDAO {
 	public void reportPothole(Pothole newPothole) {
 		String sqlUpdate = "INSERT INTO pothole (pothole_id, street_name, longitude, latitude) "
 				+ " VALUES (?,?,?,?)  ";
-		
-		
-		
+
 		jdbcTemplate.update(sqlUpdate, getNextPotHoleId(), newPothole.getStreetName(), 
 				newPothole.getLongitude(), newPothole.getLatitude());
 	}
