@@ -71,8 +71,7 @@ public class PotHoleController {
     }
     
     @RequestMapping(path = "/potholes/somethingElse", method = RequestMethod.POST)
-    public String employeeModifyPotholePost(Model model, @RequestParam long potholeId, 
-     		@RequestParam int severity, @RequestParam String statusCode) {
+    public String employeeModifyPotholePost(Pothole pothole) {
     		
     		
 //    		@SuppressWarnings("deprecation")
