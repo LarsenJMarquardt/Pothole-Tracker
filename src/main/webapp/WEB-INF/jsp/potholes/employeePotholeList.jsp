@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <h1>Pothole List EMPLOYEE</h1>
+                <h1>Pothole List</h1>
             </div>
         </div>
     </div>
