@@ -8,6 +8,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -45,11 +46,37 @@ public class JdbcPotholeDAO implements PotholeDAO {
     
 	@Override
 	public void reportPothole(Pothole newPothole) {
-		String sqlUpdate = "INSERT INTO pothole (pothole_id, street_name, longitude, latitude) "
+		String sqlUpdate = "INSERT INTO pothole (pothole_id, street_name, latitude, longitude) "
 				+ " VALUES (?,?,?,?)  ";
 
 		jdbcTemplate.update(sqlUpdate, getNextPotHoleId(), newPothole.getStreetName(), 
-				newPothole.getLongitude(), newPothole.getLatitude());
+				newPothole.getLatitude(), newPothole.getLongitude());
+	}
+	
+	
+	@Override
+	public Pothole getPotholeById(long id) {
+		String sqlGetUserPothole = "SELECT * FROM pothole WHERE pothole_id = ?";
+		Pothole thePothole = new Pothole();
+		
+		SqlRowSet results = jdbcTemplate.queryForRowSet(sqlGetUserPothole, id);
+		while(results.next()) {
+			thePothole = mapRowToPothole(results);
+		}
+		return thePothole;
+	}
+	
+	public void updatePotholeById(String statusCode, LocalDate statusDate, int severity, long id) {
+		String sqlUpdatePothole = "UPDATE pothole " + 
+				"SET status_code = ?, status_date = ?, severity = ? " + 
+				"WHERE pothole_id = ? ";
+		jdbcTemplate.update(sqlUpdatePothole, statusCode, statusDate, severity, id);
+	}
+	
+	@Override
+	public void deletePotholeById(long id) {
+		String sqlDeletePothole = "DELETE FROM pothole WHERE pothole_id = ?";
+		jdbcTemplate.update(sqlDeletePothole, id);
 	}
     
     public long getNextPotHoleId() {
@@ -74,6 +101,8 @@ public class JdbcPotholeDAO implements PotholeDAO {
         thePothole.setReportDate(results.getDate("report_date").toLocalDate());
         return thePothole;
     }
+
+	
 
 
 

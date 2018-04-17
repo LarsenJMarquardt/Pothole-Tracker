@@ -4,55 +4,23 @@
 
 
 
-<c:url var="pwValidator" value="/js/passwordValidation.js" />
-<script src="${pwValidator}"></script>
-
-<script type="text/javascript">
-    $(document).ready(function () {
-
-        $("form").validate({
-
-            rules : {
-                userName : {
-                    required : true
-                },
-                password : {
-                    required : true,
-                    minlength: 5,
-                    maxlength: 128,
-                    complexPassword: false //change to true later
-                },
-                confirmPassword : {
-                    required : true,
-                    equalTo : "#password"
-                }
-            },
-            messages : {
-                confirmPassword : {
-                    equalTo : "Passwords do not match"
-                }
-            },
-            errorClass : "error"
-        });
-    });
-</script>
 
 <c:url var="formAction" value="/user" />
-<form method="POST" action="${formAction}">
+<form method="POST" action="${formAction}" id ="form">
     <div class="row">
         <div class="col-sm-4"></div>
         <div class="col-sm-4">
             <div class="form-group">
-                <label for="userName">User Name: </label>
-                <input type="text" id="userName" name="userName" placeHolder="User Name" class="form-control" />
+                <label for="userNameT">User Name: </label>
+                <input type="text" id="userNameT" name="userNameT" placeHolder="User Name" class="form-control" />
             </div>
             <div class="form-group">
-                <label for="password">Password: </label>
-                <input type="password" id="password" name="password" placeHolder="Password" class="form-control" />
+                <label for="passwordT">Password: </label>
+                <input type="password" id="passwordT" name="passwordT" placeHolder="Password" class="form-control" />
             </div>
             <div class="form-group">
-                <label for="confirmPassword">Confirm Password: </label>
-                <input type="password" id="confirmPassword" name="confirmPassword" placeHolder="Re-Type Password" class="form-control" />
+                <label for="confirmPasswordT">Confirm Password: </label>
+                <input type="password" id="confirmPasswordT" name="confirmPasswordT" placeHolder="Re-Type Password" class="form-control" />
             </div>
             <button type="submit" class="btn btn-primary">Create User</button>
         </div>
