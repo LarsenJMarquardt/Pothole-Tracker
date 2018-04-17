@@ -16,6 +16,8 @@
 		</table>
 	</div>
 
+    <div id="message">Pothole location saved!</div>
+
     <form method="POST" action="${reportHref}" >
     		<div class="row">
     			<div class="col-sm-4"></div>
@@ -47,6 +49,7 @@
         var map;
         var marker;
         var infoWindow;
+        var messageWindow;
 
         function initMap() {
             var columbusCenterPos = {lat: 39.9612, lng: -82.9988};
@@ -62,11 +65,71 @@
             infoWindow = new google.maps.InfoWindow({
                 content: document.getElementById('mapPothole')
             });
+
+            messageWindow = new google.maps.InfoWindow({
+                content: '<p>Pothole Location Saved!</p>'
+                // content: document.getElementById('message')
+
+            });
+
+            google.maps.event.addListener(map, 'click', function(event) {
+                marker = new google.maps.Marker({
+                    position: event.latLng,
+                    map: map
+                });
+                infoWindow.open(map, marker);
+        });
         }
 
-        // $(document).ready(function() {
-        //
-        // })
+
+        $(document).ready(function() {
+            $.ajax({
+                url: "/api/getCoordinates",
+                type: "GET",
+                dataType: "json",
+            }).done(function(potholes) {
+                populateMap(potholes);
+            }).fail(function(xhr, status, error) {
+                console.log(error);
+            });
+        });
+
+        function populateMap(potholes) {
+
+            for (var i = 0; i < potholes.length; i++) {
+                var address = potholes[i].streetName;
+                var lat = potholes[i].latitude;
+                var lng = potholes[i].longitude;
+
+                var marker = new google.maps.Marker({
+                    position: {lat: lat, lng: lng},
+                    map: map,
+                    address: address
+                });
+
+            }
+        }
+
+        $("#save").click(function() {
+            var address = (document.getElementById('address').value);
+            var latLng = marker.getPosition();
+            var apiUrl = "/api/setCoordinates";
+            $.ajax({
+                url: apiUrl,
+                type: "POST",
+                dataType: "json",
+                data: {
+                    address: address,
+                    lat: latLng.lat(),
+                    lng: latLng.lng()
+                }
+            }).done(function(number){
+                infoWindow.close();
+                messageWindow.open();
+            }).fail(function(xhr, status, error) {
+                console.log(error);
+            });
+        });
     </script>
 
 

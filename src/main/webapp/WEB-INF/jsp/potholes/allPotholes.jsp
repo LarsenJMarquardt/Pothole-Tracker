@@ -19,8 +19,6 @@
 		</table>
 	</div>
 
-	<div id="message">Pothole location saved!</div>
-
     <c:url var="orderBySeverityLink" value="/potholes/allPotholes">
         <c:param name="orderBy" value="severity"/>
     </c:url>
@@ -225,24 +223,24 @@
 	}
 
 
- //     $("#save").click(function() {
- //         var address = (document.getElementById('address').value);
- //         var latLng = marker.getPosition();
- //         var apiUrl = "/api/setCoordinates";
- //         $.ajax({
-	// 		 url: apiUrl,
-	// 		 type: "GET",
-	// 		 dataType: "json",
-	// 		 data: {
-	// 		     address: address,
-	// 			 lat: latLng.lat(),
-	// 			 lng: latLng.lng()
-	// 		 }
-	// 	 }).done(function(data) {
-	// 	     infoWindow.close();
-	// 	     messageWindow.open(map, marker);
-	// 	 })
-	//  })
+     // $("#save").click(function() {
+      //    var address = (document.getElementById('address').value);
+      //    var latLng = marker.getPosition();
+      //    var apiUrl = "/api/setCoordinates";
+      //    $.ajax({
+		// 	 url: apiUrl,
+		// 	 type: "GET",
+		// 	 dataType: "json",
+		// 	 data: {
+		// 	     address: address,
+		// 		 lat: latLng.lat(),
+		// 		 lng: latLng.lng()
+		// 	 }
+		//  }).done(function(data) {
+		//      infoWindow.close();
+		//      messageWindow.open(map, marker);
+		//  })
+	 // })
  //
  //     var customLabel = {
  //        pothole: {
