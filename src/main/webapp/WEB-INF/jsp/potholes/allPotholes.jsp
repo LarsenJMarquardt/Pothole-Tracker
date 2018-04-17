@@ -34,14 +34,6 @@
         <c:param name="orderBy" value="status_code"/>
     </c:url>
 
-    <c:url var="orderByStatusCodeLink" value="/potholes/allPotholes">
-        <c:param name="orderdirection" value="status_code"/>
-    </c:url>
-
-    <c:url var="orderByStatusCodeLink" value="/potholes/allPotholes">
-        <c:param name="ascending" value="status_code"/>
-    </c:url>
-
     <div class="container">
         <div class="row">
             <div class="col-md-12">
