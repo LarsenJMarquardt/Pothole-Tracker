@@ -12,29 +12,20 @@
         </div>
     </div>
 
-   
 
-
-    <c:url var="orderBySeverityLink" value="/potholes/allPotholes">
+    <c:url var="orderBySeverityLink" value="/potholes/employeePotholeList">
         <c:param name="orderBy" value="severity"/>
     </c:url>
-    <c:url var="orderByStreetNameLink" value="/potholes/allPotholes">
+    <c:url var="orderByStreetNameLink" value="/potholes/employeePotholeList">
         <c:param name="orderBy" value="street_name"/>
     </c:url>
-    <c:url var="orderByReportDateLink" value="/potholes/allPotholes">
+    <c:url var="orderByReportDateLink" value="/potholes/employeePotholeList">
         <c:param name="orderBy" value="report_date"/>
     </c:url>
-    <c:url var="orderByStatusCodeLink" value="/potholes/allPotholes">
+    <c:url var="orderByStatusCodeLink" value="/potholes/employeePotholeList">
         <c:param name="orderBy" value="status_code"/>
     </c:url>
 
-    <c:url var="orderByStatusCodeLink" value="/potholes/allPotholes">
-        <c:param name="orderdirection" value="status_code"/>
-    </c:url>
-
-    <c:url var="orderByStatusCodeLink" value="/potholes/allPotholes">
-        <c:param name="ascending" value="status_code"/>
-    </c:url>
 
     <div class="container">
         <div class="row">

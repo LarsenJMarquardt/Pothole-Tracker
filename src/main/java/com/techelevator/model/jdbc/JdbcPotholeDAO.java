@@ -50,7 +50,6 @@ public class JdbcPotholeDAO implements PotholeDAO {
 				+ " VALUES (?,?,?,?)  ";
 		
 		
-		
 		jdbcTemplate.update(sqlUpdate, getNextPotHoleId(), newPothole.getStreetName(), 
 				newPothole.getLatitude(), newPothole.getLongitude());
 	}
