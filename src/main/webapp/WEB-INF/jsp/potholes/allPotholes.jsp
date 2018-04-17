@@ -203,61 +203,90 @@
     }
 
  $(document).ready(function() {
+	$.ajax({
+		url: "/api/getCoordinates",
+		type: "GET",
+		dataType: "json",
+	}).done(function(potholes) {
+		populateMap(potholes);
+    }).fail(function(xhr, status, error) {
+        console.log(error);
+	});
 
-     $("#save").click(function() {
-         var address = (document.getElementById('address').value);
-         var latLng = marker.getPosition();
-         var apiUrl = "/api/setCoordinates";
-         $.ajax({
-			 url: apiUrl,
-			 type: "GET",
-			 dataType: "json",
-			 data: {
-			     address: address,
-				 lat: latLng.lat(),
-				 lng: latLng.lng()
-			 }
-		 }).done(function(data) {
-		     infoWindow.close();
-		     messageWindow.open(map, marker);
-		 })
-	 })
+ });
 
-     var customLabel = {
-        pothole: {
-            label: 'P'
+    function populateMap(potholes) {
+
+		for (var i = 0; i < potholes.length; i++) {
+            var address = potholes[i].streetName;
+			var lat = potholes[i].latitude;
+            var lng = potholes[i].longitude;
+
+            var marker = new google.maps.Marker({
+				position: {lat: lat, lng: lng},
+				map: map,
+				address: address
+			});
+
 		}
-	};
-
-
-
-	function showPotholes() {
 
 	}
 
 
-
-    function savePothole() {
-        var address = (document.getElementById('address').value);
-        var latlng = marker.getPosition();
-        var apiUrl = "/api/setCoordinates";
-        $.ajax({
-            url: apiUrl,
-            type: "GET",
-            dataType: "json",
-			data: {
-                address: address,
-				lat: lat,
-				lng: lng
-			}
-        }).done(function(data) {
-                infoWindow.close();
-                messageWindow.open(map, marker);
-        }).fail(function (xhr, status, error) {
-            console.log(error);
-        });
-    }
- });
+ //     $("#save").click(function() {
+ //         var address = (document.getElementById('address').value);
+ //         var latLng = marker.getPosition();
+ //         var apiUrl = "/api/setCoordinates";
+ //         $.ajax({
+	// 		 url: apiUrl,
+	// 		 type: "GET",
+	// 		 dataType: "json",
+	// 		 data: {
+	// 		     address: address,
+	// 			 lat: latLng.lat(),
+	// 			 lng: latLng.lng()
+	// 		 }
+	// 	 }).done(function(data) {
+	// 	     infoWindow.close();
+	// 	     messageWindow.open(map, marker);
+	// 	 })
+	//  })
+ //
+ //     var customLabel = {
+ //        pothole: {
+ //            label: 'P'
+	// 	}
+	// };
+ //
+ //
+ //
+	// function showPotholes() {
+ //
+	// }
+ //
+ //
+ //
+ //    function savePothole() {
+ //        var address = (document.getElementById('address').value);
+ //        var latlng = marker.getPosition();
+ //        var apiUrl = "/api/setCoordinates";
+ //        $.ajax({
+ //            url: apiUrl,
+ //            type: "GET",
+ //            dataType: "json",
+	// 		data: {
+ //                address: address,
+	// 			lat: lat,
+	// 			lng: lng
+	// 		}
+ //        }).done(function(data) {
+ //                infoWindow.close();
+ //                messageWindow.open(map, marker);
+ //        }).fail(function (xhr, status, error) {
+ //            console.log(error);
+ //        });
+ //    }
+ // });
 
 //     function saveData() {
 //         var address = escape(document.getElementById('address').value);

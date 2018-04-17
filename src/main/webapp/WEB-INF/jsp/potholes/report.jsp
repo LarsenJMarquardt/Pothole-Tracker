@@ -7,7 +7,15 @@
 
 
     <c:url var="reportHref" value="/potholes/report"/>
-    
+
+	<div id="map"></div>
+	<div id="mapPothole">
+		<table>
+			<tr><td>Street name:</td> <td><input type='text' id='address'/> </td> </tr>
+			<tr><td></td><td><input type='button' value='Save' id='save' onclick='savePothole()'/> </td> </tr>
+		</table>
+	</div>
+
     <form method="POST" action="${reportHref}" >
     		<div class="row">
     			<div class="col-sm-4"></div>
@@ -32,7 +40,35 @@
     				<div class="col-sm-4"></div>
     			</div>
     </form>
-    
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhZ4dsKOQPtb3_-VdaqZ9dfYtrjhHC0-I&callback=initMap"
+            async defer type="text/javascript"></script>
+    <script>
+        var map;
+        var marker;
+        var infoWindow;
+
+        function initMap() {
+            var columbusCenterPos = {lat: 39.9612, lng: -82.9988};
+            var mapOptions = {
+                center: new google.maps.LatLng(columbusCenterPos),
+                zoom: 13,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                streetViewControl: false
+            }
+            map = new google.maps.Map(document.getElementById('map'),
+            mapOptions);
+
+            infoWindow = new google.maps.InfoWindow({
+                content: document.getElementById('mapPothole')
+            });
+        }
+
+        // $(document).ready(function() {
+        //
+        // })
+    </script>
+
 
 </div>
 
