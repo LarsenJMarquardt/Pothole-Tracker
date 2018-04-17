@@ -2,6 +2,7 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp"/>
 
+
 <div id="allPotholeList">
     <div class="container-fluid">
         <div class="row">

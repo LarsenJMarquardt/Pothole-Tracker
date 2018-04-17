@@ -46,13 +46,13 @@ public class JdbcPotholeDAO implements PotholeDAO {
     
 	@Override
 	public void reportPothole(Pothole newPothole) {
-		String sqlUpdate = "INSERT INTO pothole (pothole_id, street_name, longitude, latitude) "
+		String sqlUpdate = "INSERT INTO pothole (pothole_id, street_name, latitude, longitude) "
 				+ " VALUES (?,?,?,?)  ";
 		
 		
 		
 		jdbcTemplate.update(sqlUpdate, getNextPotHoleId(), newPothole.getStreetName(), 
-				newPothole.getLongitude(), newPothole.getLatitude());
+				newPothole.getLatitude(), newPothole.getLongitude());
 	}
 	
 	
@@ -73,6 +73,12 @@ public class JdbcPotholeDAO implements PotholeDAO {
 				"SET status_code = ?, status_date = ?, severity = ? " + 
 				"WHERE pothole_id = ? ";
 		jdbcTemplate.update(sqlUpdatePothole, statusCode, statusDate, severity, id);
+	}
+	
+	@Override
+	public void deletePotholeById(long id) {
+		String sqlDeletePothole = "DELETE FROM pothole WHERE pothole_id = ?";
+		jdbcTemplate.update(sqlDeletePothole, id);
 	}
     
     public long getNextPotHoleId() {

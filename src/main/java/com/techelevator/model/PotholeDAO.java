@@ -13,4 +13,5 @@ public interface PotholeDAO {
     
     public void updatePotholeById(String statusCode, LocalDate statusDate, int severity, long id);
 
+    public void deletePotholeById(long id);
 }

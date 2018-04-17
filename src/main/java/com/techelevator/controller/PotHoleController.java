@@ -3,6 +3,7 @@ package com.techelevator.controller;
 import com.techelevator.model.Pothole;
 import com.techelevator.model.PotholeDAO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -12,8 +13,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.Date;
 
 import javax.servlet.http.HttpSession;
@@ -46,7 +49,7 @@ public class PotHoleController {
     @RequestMapping(path = "/potholes/employeePotholeList", method = RequestMethod.GET)
     public String getEmployeePotholeList(Model model, HttpSession session, @RequestParam(required = false) String orderBy) {
     	
-	    	if ((boolean)session.getAttribute("isEmployee") == false) {
+	    	if ((boolean)session.getAttribute("isEmployee") == false || (session.getAttribute("isEmployee") == null)) {
 	    		return "redirect:/potholes/allPotholes";
 	    	}
 	    	
@@ -70,23 +73,29 @@ public class PotHoleController {
         return "/potholes/employeePotholeUpdate";
     }
     
-    @RequestMapping(path = "/potholes/somethingElse", method = RequestMethod.POST)
-    public String employeeModifyPotholePost(Model model, @RequestParam long potholeId, 
-     		@RequestParam int severity, @RequestParam String statusCode) {
+    @RequestMapping(path = "/potholes/employeePotholeUpdate", method = RequestMethod.POST)
+    public String employeeModifyPotholePost(@RequestParam long potholeId, @RequestParam int severity, @RequestParam String statusCode, @RequestParam("statusDate") @DateTimeFormat(pattern="yyyy-MM-dd") Date statusDate) {
     		
+    	
+		LocalDate localDate = statusDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
     		
-//    		@SuppressWarnings("deprecation")
-//			LocalDate updatedDate = LocalDate.of(statusDate.getYear(), statusDate.getMonth(), statusDate.getDay());
-//        @RequestParam Date statusDate
-//    		potholeDAO.updatePotholeById(statusCode, updatedDate, severity, potholeId);
+    		potholeDAO.updatePotholeById(statusCode, localDate, severity, potholeId);
+    	
+        return "redirect:/potholes/employeePotholeList";
+    }
+    
+    @RequestMapping(path = "/potholes/deletePothole", method = RequestMethod.POST)
+    public String employeeDeletePothole(@RequestParam long potholeId) {
+    		
+    		potholeDAO.deletePotholeById(potholeId);
     	
         return "redirect:/potholes/employeePotholeList";
     }
     
     
     @RequestMapping(path = "/potholes/report", method = RequestMethod.GET)
-    public String showReport(Model model, HttpSession session) {
-    	
+    public String showReport(Model model, HttpSession session, RedirectAttributes attr) {
+    		
     		String currentUser =  (String)session.getAttribute("currentUser");
     		
     		if (currentUser != null) {

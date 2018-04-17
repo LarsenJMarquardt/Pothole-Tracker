@@ -1,13 +1,14 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <c:import url="/WEB-INF/jsp/common/header.jsp"/>
-
+ <c:url value="/js" var="jsHref"/>
+    <script src="${jsHref}/delete.js"></script>
 
 
 <div class="allPotholes">
 	<div class="container">
 
-			<c:url var="potholeUpdateLink" value="/potholes/somethingElse"/>
+			<c:url var="potholeUpdateLink" value="/potholes/employeePotholeUpdate"/>
  			
  				<div class="row">
  					<div class="col-xs-6">
@@ -35,7 +36,7 @@
  				</div>
  			
  			<form method="POST" action="${potholeUpdateLink}" >
- 			
+ 				<input type="hidden" name="potholeId" value="${pothole.id}">
  				<div class="row">
  					<div class="col-xs-6">
  						<label for="severity">Pothole Severity:</label>
@@ -64,14 +65,14 @@
 	 					</select>
  					</div>
  				</div>
- 				<%-- <div class="row">
+ 				<div class="row">
  					<div class="col-xs-6">
  						<label for="statusDate">Status Date:</label>
  					</div>
  					<div class="col-xs-6">
  						<input id="date" type="date" name="statusDate" value="${pothole.statusDate}" >
  					</div>
- 				</div> --%>
+ 				</div>
  				
  			
  				<button type="submit" class="btn btn-warning">Update Pothole</button>
@@ -79,12 +80,13 @@
  			
  			</form>
  			
- 			<!-- <button type="submit" class="btn btn-danger">Delete Pothole</button> -->
-		             	
-		             	
-		                 	
-		             	
-		
+ 			<c:url var="potholeDeleteLink" value="/potholes/deletePothole"/>
+ 			
+ 			<form id="deleteForm" method="POST" action="${potholeDeleteLink}" >
+	 			<input type="hidden" name="potholeId" value="${pothole.id}">
+	 			<button id="deletePothole" type="submit" class="btn btn-danger">Delete Pothole</button>
+	 			<p id="demo"></p>
+ 			</form>
 	</div>
 </div>
 
