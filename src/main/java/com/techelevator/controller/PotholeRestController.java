@@ -21,10 +21,7 @@ public class PotholeRestController {
     private Pothole pothole;
 
     @RequestMapping(path="/api/setCoordinates", method = RequestMethod.POST)
-    public int setCoordinates(HttpServletRequest request, @RequestParam String address, @RequestParam double lat, @RequestParam double lng) {
-        pothole.setLatitude(lat);
-        pothole.setLongitude(lng);
-        pothole.setStreetName(address);
+    public int setCoordinates(Pothole pothole) {
     potholeDAO.reportPothole(pothole);
     return 0;
     }

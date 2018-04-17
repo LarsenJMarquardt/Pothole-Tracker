@@ -12,7 +12,7 @@
 	<div id="mapPothole">
 		<table>
 			<tr><td>Street name:</td> <td><input type='text' id='address'/> </td> </tr>
-			<tr><td></td><td><input type='button' value='Save' id='save' onclick='savePothole()'/> </td> </tr>
+			<tr><td></td><td><input type='button' value='Save' id='save'/> </td> </tr>
 		</table>
 	</div>
 
@@ -119,9 +119,9 @@
                 type: "POST",
                 dataType: "json",
                 data: {
-                    address: address,
-                    lat: latLng.lat(),
-                    lng: latLng.lng()
+                    streetName: address,
+                    latitude: latLng.lat(),
+                    longitude: latLng.lng()
                 }
             }).done(function(number){
                 infoWindow.close();
