@@ -84,6 +84,7 @@
  				<button type="submit" class="btn btn-warning">Update Pothole</button>
  			</form>
  			
+ 			<c:url var="potholeDeleteLink" value="/potholes/deletePothole"/>
  			<form id="deleteForm" method="POST" action="${potholeDeleteLink}" >
 	 			<input type="hidden" name="potholeId" value="${pothole.id}">
 	 			<button id="deletePothole" type="submit" class="btn btn-danger">Delete Pothole</button>
@@ -92,7 +93,7 @@
  			
 	</div>
 </div>
-<c:url var="potholeDeleteLink" value="/potholes/deletePothole"/>
+
  			
  			
 
