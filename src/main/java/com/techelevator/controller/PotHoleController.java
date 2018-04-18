@@ -72,7 +72,6 @@ public class PotHoleController {
     	
         return "/potholes/employeePotholeUpdate";
     }
-    
 
     @RequestMapping(path = "/potholes/employeePotholeUpdate", method = RequestMethod.POST)
     public String employeeModifyPotholePost(@RequestParam long potholeId, @RequestParam int severity, @RequestParam String statusCode, @RequestParam("statusDate") @DateTimeFormat(pattern="yyyy-MM-dd") Date statusDate) {

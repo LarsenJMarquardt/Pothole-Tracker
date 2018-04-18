@@ -19,8 +19,6 @@
 		</table>
 	</div>
 
-	<div id="message">Pothole location saved!</div>
-
     <c:url var="orderBySeverityLink" value="/potholes/allPotholes">
         <c:param name="orderBy" value="severity"/>
     </c:url>
@@ -166,7 +164,8 @@
             center: new google.maps.LatLng(columbusCenterPos),
             zoom: 13,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
-            streetViewControl: false
+            streetViewControl: false,
+			gestureHandling: 'greedy' //Brandon change, gets rid of needing control
         }
         map = new google.maps.Map(document.getElementById('map'),
             mapOptions);
@@ -176,7 +175,7 @@
 		});
 
         messageWindow = new google.maps.InfoWindow({
-			content: '<p>Pothole Location Saved!</p>'
+			content: '<p id = "mapWindow">Pothole Location Saved!</p>' //Brandon addition to add a target for css
 			// content: document.getElementById('message')
 
 		});
@@ -224,16 +223,6 @@
 		}
 
 	}
-    
-       /* var icons = {
-       initialReport: { icon: 'map_0.png'}, severityLevel1: { icon: 'map_1.png'},
-       severityLevel2: { icon: 'map_2.png'}, severityLevel3: {icon: 'map_3.png'},
-       severityLevel4: {icon: 'map_4.png'}, severityLevel5: {icon: 'map_5.png'} };
-       Function to display pothole information on the map */
-
-
-       
- 
 
 </script>
 

@@ -37,111 +37,111 @@
             </div>
         </div>
     </div>
-    
+
     <div class="allPotholes hidden-xs hidden-sm">
-    		<div class="container">
-    			<section id="pothole">
-    				<div class="row">
-    					<div class="col-md-2">
-    						<b>Street Name</b>
-    					</div>
-    					<div class="col-md-10">
-    						<div class="row">
-	                        	<div class="col-md-2">
-	                        		Reported
-	                        	</div>
-	                        	<div class="col-md-2">
-	                        		
-	                        	</div>
-	                        	<div class="col-md-2">
-	                        		Status Code
-	                        	</div>
-	                        	<div class="col-md-2">
-	                        		Status Date
-	                        	</div>
-	                        	<div class="col-md-2">
-	                        		Severity
-	                        	</div>
-	                     </div>
-    					</div>
-    				</div>
-    			</section>
-    		</div>
+        <div class="container">
+            <section id="pothole">
+                <div class="row">
+                    <div class="col-md-2">
+                        <b>Street Name</b>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-2">
+                                Reported
+                            </div>
+                            <div class="col-md-2">
+
+                            </div>
+                            <div class="col-md-2">
+                                Status Code
+                            </div>
+                            <div class="col-md-2">
+                                Status Date
+                            </div>
+                            <div class="col-md-2">
+                                Severity
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
-    
+
     <div class="allPotholes">
         <c:forEach items="${allPotholes}" var="pothole">
-        	  
-        	  <!-- Send Pothole ID to the employeePotholeUpdate page so that changes can be made -->
-   		  <c:url var="potholeIdLink" value="/potholes/employeePotholeUpdate">
-    		  <c:param name="potholeId" value="${pothole.id}" />
-    		  </c:url>
-        
+
+            <!-- Send Pothole ID to the employeePotholeUpdate page so that changes can be made -->
+            <c:url var="potholeIdLink" value="/potholes/employeePotholeUpdate">
+                <c:param name="potholeId" value="${pothole.id}"/>
+            </c:url>
+
             <div class="container">
                 <section id="pothole" class="hidden-xs hidden-sm">
                     <div class="row">
-                    		<div class="col-md-2">
-	                        		<p style="font-size: 15px"><b><c:out value="${pothole.id}"/> 
-	                        		<a href="${potholeIdLink}"><c:out value="${pothole.streetName}"/></a></b></p>
-	                     </div>
-	                        
-	                     <div class="col-md-10">
-	                        <div class="row">
-	                        		<div class="col-md-2">
-	                              
-	                            		<p><c:out value="${pothole.reportDate}"/></p>
-		                        </div>
-		                        <div class="col-md-2">
-		                           
-		                        </div>
-		                        <div class="col-md-2">
-		                        		<p><c:out value="${pothole.statusCode}"/></p>
-		                        </div>
-		                        <div class="col-md-2">
-		                            <p><c:out value="${pothole.statusDate}"/></p>
-		                        </div>
-		                        <div class="col-md-2" style="display:flex;justify-content: center">
-		                            <p><c:url var="severityImgLink" value="/img/${pothole.severity}.png" />
-                            			<img class="severity-img" src="${severityImgLink}" alt="Severity"></p>
-		                        </div>
-                        		</div>
+                        <div class="col-md-2">
+                            <p style="font-size: 15px"><b><c:out value="${pothole.id}"/>
+                                <a href="${potholeIdLink}"><c:out value="${pothole.streetName}"/></a></b></p>
+                        </div>
+
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="col-md-2">
+
+                                    <p><c:out value="${pothole.reportDate}"/></p>
+                                </div>
+                                <div class="col-md-2">
+
+                                </div>
+                                <div class="col-md-2">
+                                    <p><c:out value="${pothole.statusCode}"/></p>
+                                </div>
+                                <div class="col-md-2">
+                                    <p><c:out value="${pothole.statusDate}"/></p>
+                                </div>
+                                <div class="col-md-2" style="display:flex;justify-content: center">
+                                    <p><c:url var="severityImgLink" value="/img/${pothole.severity}.png"/>
+                                        <img class="severity-img" src="${severityImgLink}" alt="Severity"></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <hr>
-                  </section>
-                  
-                  <section id="pothole" class="hidden-md hidden-s hidden-lg">
-                  	<div class="row">
-                    		<div class="col-md-2">
-	                        		<p style="font-size: 20px"><b><c:out value="${pothole.id}"/> 
-	                        		<a href="${potholeIdLink}"><c:out value="${pothole.streetName}"/></a></b></p>
-	                     </div>
-	                        
-	                     <div class="col-md-10">
-	                        <div class="row">
-	                        		<div class="col-md-2">
-	                                <%--<c:out value="${pothole.id}"/>--%>
-	                            		<p><b>Reported: </b><c:out value="${pothole.reportDate}"/></p>
-		                        </div>
-		                        <div class="col-md-2">
-		                            
-		                        </div>
-		                        <div class="col-md-2">
-		                        		<p> <b>Status Code: </b><c:out value="${pothole.statusCode}"/></p>
-		                        </div>
-		                        <div class="col-md-2">
-		                            <p><b>Status Date: </b> <c:out value="${pothole.statusDate}"/></p>
-		                        </div>
-		                        <div class="col-md-2" style="display:flex;justify-content: center">
-		                            <p><c:url var="severityImgLink" value="/img/${pothole.severity}.png" />
-                            			<img class="severity-img" src="${severityImgLink}" alt="Severity"></p>
-		                        </div>
-                        		</div>
+                </section>
+
+                <section id="pothole" class="hidden-md hidden-s hidden-lg">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p style="font-size: 20px"><b><c:out value="${pothole.id}"/>
+                                <a href="${potholeIdLink}"><c:out value="${pothole.streetName}"/></a></b></p>
+                        </div>
+
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="col-md-2">
+                                        <%--<c:out value="${pothole.id}"/>--%>
+                                    <p><b>Reported: </b><c:out value="${pothole.reportDate}"/></p>
+                                </div>
+                                <div class="col-md-2">
+
+                                </div>
+                                <div class="col-md-2">
+                                    <p><b>Status Code: </b><c:out value="${pothole.statusCode}"/></p>
+                                </div>
+                                <div class="col-md-2">
+                                    <p><b>Status Date: </b> <c:out value="${pothole.statusDate}"/></p>
+                                </div>
+                                <div class="col-md-2" style="display:flex;justify-content: center">
+                                    <p><c:url var="severityImgLink" value="/img/${pothole.severity}.png"/>
+                                        <img class="severity-img" src="${severityImgLink}" alt="Severity"></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <hr>
-                  </section>
-                   
+                </section>
+
             </div>
 
         </c:forEach>

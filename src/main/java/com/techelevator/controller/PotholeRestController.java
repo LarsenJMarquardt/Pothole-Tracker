@@ -21,14 +21,11 @@ public class PotholeRestController {
     private PotholeDAO potholeDAO;
     private Pothole pothole;
 
-//    @RequestMapping(path="/setCoordinates", method = RequestMethod.POST)
-//    public int setCoordinates(HttpServletRequest request, @RequestParam String address, @RequestParam double lat, @RequestParam double lng) {
-//        pothole.setLatitude(lat);
-//        pothole.setLongitude(lng);
-//        pothole.setStreetName(address);
-//        potholeDAO.reportPothole(pothole);
-//        return 0; //do something
-//    }
+    @RequestMapping(path="/setCoordinates", method = RequestMethod.POST)
+    public int setCoordinates(Pothole pothole) {
+    potholeDAO.reportPothole(pothole);
+    return 0;
+    }
 
     @RequestMapping(path="/getCoordinates", method = RequestMethod.GET)
     public List<Pothole> getCoordinates(HttpServletRequest request) {
