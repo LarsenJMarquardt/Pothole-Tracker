@@ -94,11 +94,8 @@ public class PotHoleController {
     		
     		String currentUser =  (String)session.getAttribute("currentUser");
     		
-    		if (currentUser != null) {
-    			return "/potholes/report";
-    		} else {
-    			return "redirect:/user/login";
-    		}
+    		return (currentUser != null) ? "/potholes/report" : "redirect:/user/login";
+
     }
 
     @RequestMapping(path = "/potholes/report", method = RequestMethod.POST)
