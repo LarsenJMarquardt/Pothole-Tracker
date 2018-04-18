@@ -196,7 +196,7 @@
 				address: address,
                 icon: {
                     url: '../img/map_' + severity + '.png',
-                    scaledSize: new google.maps.Size(40, 40)
+                    scaledSize: new google.maps.Size(20, 20)
                 }
             });
             	
@@ -214,14 +214,9 @@
             	      obj.open(map,marker);
             	      }
             	}
-
             	google.maps.event.addListener(marker, 'click', onclick(object_infowindow['infowindow' + i], marker) );
-            		
 		}
-	} 
-
-	  
-	  
+	}
 </script>
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp"/>
