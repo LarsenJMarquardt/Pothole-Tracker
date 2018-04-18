@@ -205,14 +205,24 @@
         			
              });
             
-            var onclick = function(objeto_infowindow,marker){
-            	      var obj = objeto_infowindow;
+            var onclick = function(object_infowindow,marker){
+            	      var obj = object_infowindow;
             	      return function(){
             	      obj.open(map,marker);
             	      }
             	}
+            
+            var onblur = function(object_infowindow,marker){
+      	      var obj = object_infowindow;
+      	      return function(){
+      	      obj.close(map,marker);
+	      	      }
+	      	}
+            
 
             	google.maps.event.addListener(marker, 'click', onclick(object_infowindow['infowindow' + i], marker) );
+            	
+            	google.maps.event.addListener(marker, 'blur', onblur(object_infowindow['infowindow' + i], marker) );
             		
 		}
 	} 
