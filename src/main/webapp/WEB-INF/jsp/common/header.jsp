@@ -59,9 +59,9 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <div class="navbar-brand"> <li>
+            <div class="navbar-brand">
                 ${currentUser}
-            </li></div>
+            </div>
         </div>
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
