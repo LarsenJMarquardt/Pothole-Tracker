@@ -14,22 +14,24 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api")
 public class PotholeRestController {
 
     @Autowired
     private PotholeDAO potholeDAO;
     private Pothole pothole;
 
-    @RequestMapping(path="/api/setCoordinates", method = RequestMethod.POST)
-    public int setCoordinates(HttpServletRequest request, @RequestParam String address, @RequestParam double lat, @RequestParam double lng) {
-        pothole.setLatitude(lat);
-        pothole.setLongitude(lng);
-        pothole.setStreetName(address);
-    potholeDAO.reportPothole(pothole);
-    }
+//    @RequestMapping(path="/setCoordinates", method = RequestMethod.POST)
+//    public int setCoordinates(HttpServletRequest request, @RequestParam String address, @RequestParam double lat, @RequestParam double lng) {
+//        pothole.setLatitude(lat);
+//        pothole.setLongitude(lng);
+//        pothole.setStreetName(address);
+//        potholeDAO.reportPothole(pothole);
+//        return 0; //do something
+//    }
 
-    @RequestMapping(path="/api/getCoordinates", method = RequestMethod.GET)
-    public List<Pothole> getCoordinates() {
+    @RequestMapping(path="/getCoordinates", method = RequestMethod.GET)
+    public List<Pothole> getCoordinates(HttpServletRequest request) {
         String orderBy = "report_date";
         List<Pothole> potholes = potholeDAO.getListOfPotholes(orderBy);
         return potholes;
