@@ -12,12 +12,6 @@
     </div>
 
     <div id="map"></div>
-	<div id="mapPothole">
-		<table>
-			<tr><td>Street name:</td> <td><input type='text' id='address'/> </td> </tr>
-			<tr><td></td><td><input type='button' value='Save' id='save' onclick='savePothole()'/> </td> </tr>
-		</table>
-	</div>
 
     <c:url var="orderBySeverityLink" value="/potholes/allPotholes">
         <c:param name="orderBy" value="severity"/>
@@ -77,17 +71,28 @@
     
     <div class="allPotholes">
         <c:forEach items="${allPotholes}" var="pothole">
+
+			<c:url var="potholeIdLink" value="/potholes/employeePotholeUpdate">
+				<c:param name="potholeId" value="${pothole.id}"/>
+			</c:url>
+
             <div class="container">
                 <section id="pothole" class="hidden-xs hidden-sm">
                     <div class="row">
                     		<div class="col-md-2">
+								<c:choose>
+								<c:when test="${isEmployee == false}">
 	                        		<p style="font-size: 15px"><b><c:out value="${pothole.streetName}"/></b></p>
-	                     </div>
-	                        
+								</c:when>
+								<c:otherwise>
+									<p style="font-size: 15px"><a href="${potholeIdLink}"><b><c:out value="${pothole.streetName}"/></b></a></p>
+								</c:otherwise>
+								</c:choose>
+							</div>
+
 	                     <div class="col-md-10">
 	                        <div class="row">
 	                        		<div class="col-md-2">
-	                                <%--<c:out value="${pothole.id}"/>--%>
 	                            		<p><c:out value="${pothole.reportDate}"/></p>
 		                        </div>
 		                        <div class="col-md-2">
@@ -118,7 +123,6 @@
 	                     <div class="col-md-10">
 	                        <div class="row">
 	                        		<div class="col-md-2">
-	                                <%--<c:out value="${pothole.id}"/>--%>
 	                            		<p><b>Reported: </b><c:out value="${pothole.reportDate}"/></p>
 		                        </div>
 		                        <div class="col-md-2">
@@ -151,10 +155,6 @@
 
 <script>
     var map;
-    var marker;
-    var infoWindow;
-    var messageWindow;
-
 
     function initMap() {
         var columbusCenterPos = {lat: 39.9612, lng: -82.9988};
@@ -169,28 +169,6 @@
         }
         map = new google.maps.Map(document.getElementById('map'),
             mapOptions);
-
-        infoWindow = new google.maps.InfoWindow({
-			content: document.getElementById('mapPothole')
-		});
-
-        messageWindow = new google.maps.InfoWindow({
-			content: '<p id = "mapWindow">Pothole Location Saved!</p>' //Brandon addition to add a target for css
-			// content: document.getElementById('message')
-
-		});
-
-        google.maps.event.addListener(map, 'click', function(event) {
-            marker = new google.maps.Marker({
-				position: event.latLng,
-				map: map
-			});
-
-            google.maps.event.addListener(marker, 'click', function() {
-                infoWindow.open(map, marker);
-			});
-		});
-
     }
 
  $(document).ready(function() {
@@ -206,24 +184,60 @@
 	});
 
  });
-
-    function populateMap(potholes) {
+ 
+	var markerArray = [];
+	var object_infowindow = [];
+    
+	function populateMap(potholes) {
 
 		for (var i = 0; i < potholes.length; i++) {
             var address = potholes[i].streetName;
 			var lat = potholes[i].latitude;
             var lng = potholes[i].longitude;
+            var severity = potholes[i].severity;
 
             var marker = new google.maps.Marker({
 				position: {lat: lat, lng: lng},
 				map: map,
-				address: address
-			});
+				address: address,
+                icon: {
+                    url: '../img/map_' + severity + '.png',
+                    scaledSize: new google.maps.Size(40, 40)
+                }
+            });
+            	
+            var info = '<div id="content">'+
+                '<h3 id="firstHeading" class="firstHeading">'+address+'</h1>' +
+                '</div>';
+                
+            object_infowindow['infowindow' + i] = new google.maps.InfoWindow({
+        		content: info,
+             });
+            
+            var onclick = function(object_infowindow,marker){
+            	      var obj = object_infowindow;
+            	      return function(){
+            	      obj.open(map,marker);
+            	      }
+            	}
+            
+            var onMouseOut = function(object_infowindow,marker){
+      	      var obj = object_infowindow;
+      	      return function(){
+      	      obj.close(map,marker);
+	      	      }
+	      	}
+            
 
+            	google.maps.event.addListener(marker, 'click', onclick(object_infowindow['infowindow' + i], marker) );
+            	
+            	google.maps.event.addListener(marker, 'mouseout', onMouseOut(object_infowindow['infowindow' + i], marker) );
+            		
 		}
+	} 
 
-	}
-
+	  
+	  
 </script>
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp"/>

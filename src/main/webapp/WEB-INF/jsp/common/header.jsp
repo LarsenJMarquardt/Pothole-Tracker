@@ -50,26 +50,29 @@
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
+<<<<<<< HEAD
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#bs-example-navbar-collapse-1"
                     aria-expanded="false">
+=======
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+
+>>>>>>> 51cca5cc9ee5d2b22e81d91fd409b4abd1c35abd
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="${homePageHref}">
-            </a>
+            <div class="navbar-brand">
+                ${currentUser}
+            </div>
         </div>
 
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-left">
 
+            <ul class="nav navbar-nav navbar-left">
                 <li class="active">
                     <a href="${homePageHref}">Home</a>
                 </li>
@@ -81,16 +84,11 @@
                 </li>
 
             </ul>
-
-
             <ul class="nav navbar-nav navbar-right">
 
 
                 <c:choose>
                     <c:when test="${currentUser != null}">
-                        <li style="color:lightgrey; padding-top: 13px">
-                            Welcome, ${currentUser}!
-                        </li>
                         <li>
                             <a href="${logoutHref}">Logout</a>
                         </li>
