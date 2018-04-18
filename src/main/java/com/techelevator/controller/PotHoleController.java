@@ -1,7 +1,7 @@
 package com.techelevator.controller;
 
-import com.techelevator.model.Pothole;
 import com.techelevator.model.PotholeDAO;
+import com.techelevator.model.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.stereotype.Controller;
@@ -12,11 +12,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpSession;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.Date;
-
-import javax.servlet.http.HttpSession;
 
 @Controller
 @SessionAttributes({"currentUser", "isEmployee"})
