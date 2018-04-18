@@ -53,7 +53,11 @@
             google.maps.event.addListener(map, 'click', function(event) {
                 marker = new google.maps.Marker({
                     position: event.latLng,
-                    map: map
+                    map: map,
+                    icon: {
+                        url: '../img/map_0.png',
+                        scaledSize: new google.maps.Size(40, 40)
+                    }
                 });
                 infoWindow.open(map, marker);
         });
@@ -78,7 +82,7 @@
                 var address = potholes[i].streetName;
                 var lat = potholes[i].latitude;
                 var lng = potholes[i].longitude;
-                var severity = potholes[i].severity;
+                severity = potholes[i].severity;
 
                 var marker = new google.maps.Marker({
                     position: {lat: lat, lng: lng},
