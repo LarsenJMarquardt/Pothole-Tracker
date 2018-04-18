@@ -36,7 +36,8 @@
                 center: new google.maps.LatLng(columbusCenterPos),
                 zoom: 13,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
-                streetViewControl: false
+                streetViewControl: false,
+                gestureHandling: 'greedy'
             }
             map = new google.maps.Map(document.getElementById('map'),
                 mapOptions);
