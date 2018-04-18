@@ -185,7 +185,6 @@
 
  });
  
-	var markerArray = [];
 	var object_infowindow = [];
     
 	function populateMap(potholes) {

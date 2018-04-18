@@ -7,12 +7,12 @@
     <div class="container-fluid">
     		<h1>Report a Pothole</h1>
 		<div id="map"></div>
-		<div id="mapPothole">
+		<!-- <div id="mapPothole">
 			<table>
 				<tr><td>Street name:</td> <td><input type='text' id='address'/> </td> </tr>
 				<tr><td></td><td><input type='button' value='Report' id='save'/> </td> </tr>
 			</table>
-		</div>
+		</div> -->
 
     <div id="message">Pothole location saved!</div>
 
@@ -22,7 +22,6 @@
             async defer type="text/javascript"></script>
     <script>
         var map;
-        var marker;
         var infoWindow;
         var messageWindow;
 
@@ -40,8 +39,15 @@
             map = new google.maps.Map(document.getElementById('map'),
                 mapOptions);
 
+            var infoWindowContent = '<div id="mapPothole">' +
+			'<table>'+'<tr>'+'<td>'+'Street name:'+'</td>'+ '<td>'+'<input type="text" id="address"/>' +'</td>'+'</tr>'+
+			'<tr>'+'<td>'+'</td>'+'<td>'+'<input type="button" value="Report" id="save"/>'+'</td>'+'</tr>' +
+			'</table>'+
+			'</div>';
+            
+            
             infoWindow = new google.maps.InfoWindow({
-                content: document.getElementById('mapPothole')
+                content: infoWindowContent,
             });
 
             messageWindow = new google.maps.InfoWindow({
@@ -49,6 +55,8 @@
                 // content: document.getElementById('message')
 
             });
+            
+            
 
             google.maps.event.addListener(map, 'click', function(event) {
                 marker = new google.maps.Marker({
@@ -100,7 +108,7 @@
         $("#save").click(function() {
             var address = (document.getElementById('address').value);
             var latLng = marker.getPosition();
-            var apiUrl = "/api/setCoordinates";
+            var apiUrl = "/capstone/api/setCoordinates";
             $.ajax({
                 url: apiUrl,
                 type: "POST",
