@@ -55,8 +55,12 @@ footer {
 	padding-left: 10%;
 	border-top-width: 25px;
 	padding-right: 10%;
+}
 
-
+#report {
+	padding-left: 10%;
+	border-top-width: 25px;
+	padding-right: 10%;
 }
 
 hr {
