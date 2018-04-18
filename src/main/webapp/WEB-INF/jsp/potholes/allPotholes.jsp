@@ -71,13 +71,25 @@
     
     <div class="allPotholes">
         <c:forEach items="${allPotholes}" var="pothole">
+
+			<c:url var="potholeIdLink" value="/potholes/employeePotholeUpdate">
+				<c:param name="potholeId" value="${pothole.id}"/>
+			</c:url>
+
             <div class="container">
                 <section id="pothole" class="hidden-xs hidden-sm">
                     <div class="row">
                     		<div class="col-md-2">
+								<c:choose>
+								<c:when test="${isEmployee == false}">
 	                        		<p style="font-size: 15px"><b><c:out value="${pothole.streetName}"/></b></p>
-	                     </div>
-	                        
+								</c:when>
+								<c:otherwise>
+									<p style="font-size: 15px"><a href="${potholeIdLink}"><b><c:out value="${pothole.streetName}"/></b></a></p>
+								</c:otherwise>
+								</c:choose>
+							</div>
+
 	                     <div class="col-md-10">
 	                        <div class="row">
 	                        		<div class="col-md-2">
