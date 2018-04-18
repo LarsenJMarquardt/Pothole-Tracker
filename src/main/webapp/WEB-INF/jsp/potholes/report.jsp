@@ -10,7 +10,7 @@
 		<div id="mapPothole">
 			<table>
 				<tr><td>Street name:</td> <td><input type='text' id='address'/> </td> </tr>
-				<tr><td></td><td><input type='button' value='Save' id='save'/> </td> </tr>
+				<tr><td></td><td><input type='button' value='Report' id='save'/> </td> </tr>
 			</table>
 		</div>
 
@@ -56,7 +56,7 @@
                     map: map,
                     icon: {
                         url: '../img/map_0.png',
-                        scaledSize: new google.maps.Size(40, 40)
+                        scaledSize: new google.maps.Size(20, 20)
                     }
                 });
                 infoWindow.open(map, marker);
@@ -66,7 +66,7 @@
 
         $(document).ready(function() {
             $.ajax({
-                url: "/api/getCoordinates",
+                url: "/capstone/api/getCoordinates",
                 type: "GET",
                 dataType: "json",
             }).done(function(potholes) {
@@ -90,7 +90,7 @@
                     address: address,
                     icon: {
                         url: '../img/map_' + severity + '.png',
-                        scaledSize: new google.maps.Size(40, 40)
+                        scaledSize: new google.maps.Size(20, 20)
                     }
                 });
 
@@ -117,6 +117,7 @@
                 console.log(error);
             });
         });
+        
     </script>
 
 
