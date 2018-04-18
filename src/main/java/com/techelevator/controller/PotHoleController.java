@@ -100,20 +100,4 @@ public class PotHoleController {
     			return "redirect:/user/login";
     		}
     }
-
-    @RequestMapping(path = "/potholes/report", method = RequestMethod.POST)
-    public String reportPothole(@RequestParam String streetName, @RequestParam double latitude, 
-    									@RequestParam double longitude, Model model) {
-    		
-    		Pothole newPothole = new Pothole();
-    		
-    		newPothole.setStreetName(streetName);
-    		newPothole.setLatitude(latitude);
-    		newPothole.setLongitude(longitude);
-    		
-    		potholeDAO.reportPothole(newPothole);
-    		
-        return "redirect:/potholes/allPotholes";
-    }
-
 }
