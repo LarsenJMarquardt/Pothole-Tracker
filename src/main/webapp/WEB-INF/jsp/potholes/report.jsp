@@ -64,7 +64,7 @@
 
         $(document).ready(function() {
             $.ajax({
-                url: "/capstone/api/getCoordinates",
+                url: "/api/getCoordinates",
                 type: "GET",
                 dataType: "json",
             }).done(function(potholes) {
@@ -93,7 +93,7 @@
         $("#save").click(function() {
             var address = (document.getElementById('address').value);
             var latLng = marker.getPosition();
-            var apiUrl = "/capstone/api/setCoordinates";
+            var apiUrl = "/api/setCoordinates";
             $.ajax({
                 url: apiUrl,
                 type: "POST",
