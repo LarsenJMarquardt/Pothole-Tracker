@@ -21,8 +21,6 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhZ4dsKOQPtb3_-VdaqZ9dfYtrjhHC0-I&callback=initMap"
             async defer type="text/javascript"></script>
     <script>
-    
-    
         var map;
         var marker;
         var infoWindow;
@@ -76,15 +74,27 @@
 
         function populateMap(potholes) {
 
+
+
+            var icon = {
+                url: '../img/map_0.png',
+                scaledSize: new google.maps.Size(50, 50)
+            }
+
             for (var i = 0; i < potholes.length; i++) {
                 var address = potholes[i].streetName;
                 var lat = potholes[i].latitude;
                 var lng = potholes[i].longitude;
+                var severity = potholes[i].severity;
 
                 var marker = new google.maps.Marker({
                     position: {lat: lat, lng: lng},
                     map: map,
-                    address: address
+                    address: address,
+                    icon: {
+                        url: '../img/map_' + severity + '.png',
+                        scaledSize: new google.maps.Size(50, 50)
+                    }
                 });
 
             }
