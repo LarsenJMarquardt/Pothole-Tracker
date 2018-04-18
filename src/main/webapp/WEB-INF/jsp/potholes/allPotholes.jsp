@@ -12,12 +12,6 @@
     </div>
 
     <div id="map"></div>
-	<!-- <div id="mapPothole">
-		<table>
-			<tr><td>Street name:</td> <td><input type='text' id='address'/> </td> </tr>
-			<tr><td></td><td><input type='button' value='Save' id='save' onclick='savePothole()'/> </td> </tr>
-		</table>
-	</div> -->
 
     <c:url var="orderBySeverityLink" value="/potholes/allPotholes">
         <c:param name="orderBy" value="severity"/>
