@@ -56,7 +56,7 @@
                     map: map,
                     icon: {
                         url: '../img/map_0.png',
-                        scaledSize: new google.maps.Size(20, 20)
+                        scaledSize: new google.maps.Size(40, 40)
                     }
                 });
                 infoWindow.open(map, marker);
@@ -90,7 +90,7 @@
                     address: address,
                     icon: {
                         url: '../img/map_' + severity + '.png',
-                        scaledSize: new google.maps.Size(20, 20)
+                        scaledSize: new google.maps.Size(40, 40)
                     }
                 });
 
