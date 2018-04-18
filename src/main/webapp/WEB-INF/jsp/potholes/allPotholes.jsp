@@ -188,11 +188,16 @@
             var address = potholes[i].streetName;
 			var lat = potholes[i].latitude;
             var lng = potholes[i].longitude;
+            var severity = potholes[i].severity;
 
             var marker = new google.maps.Marker({
 				position: {lat: lat, lng: lng},
 				map: map,
-				address: address
+				address: address,
+                icon: {
+                    url: '../img/map_' + severity + '.png',
+                    scaledSize: new google.maps.Size(40, 40)
+                }
             });
             	
             var info = '<div id="content">'+
@@ -200,9 +205,7 @@
                 '</div>';
                 
             object_infowindow['infowindow' + i] = new google.maps.InfoWindow({
-                	
         		content: info,
-        			
              });
             
             var onclick = function(objeto_infowindow,marker){
