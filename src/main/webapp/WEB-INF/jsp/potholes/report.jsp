@@ -7,16 +7,6 @@
     <div class="container-fluid">
     		<h1>Report a Pothole</h1>
 		<div id="map"></div>
-		<!-- <div id="mapPothole">
-			<table>
-				<tr><td>Street name:</td> <td><input type='text' id='address'/> </td> </tr>
-				<tr><td></td><td><input type='button' value='Report' id='save'/> </td> </tr>
-			</table>
-		</div> -->
-
-    <div id="message">Pothole location saved!</div>
-
-   
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhZ4dsKOQPtb3_-VdaqZ9dfYtrjhHC0-I&callback=initMap"
             async defer type="text/javascript"></script>
@@ -40,26 +30,23 @@
                 mapOptions);
 
             var infoWindowContent = '<div id="mapPothole">' +
-			'<table>'+'<tr>'+'<td>'+'Street name:'+'</td>'+ '<td>'+'<input type="text" id="address"/>' +'</td>'+'</tr>'+
+			'<table>'+'<tr>'+'<td>'+'Street name:'+'</td>'+ '<td>'+'<input type="text" minlength="4" id="address"/>' +'</td>'+'</tr>'+
 			'<tr>'+'<td>'+'</td>'+'<td>'+'<input type="button" value="Report" id="save"/>'+'</td>'+'</tr>' +
 			'</table>'+
 			'</div>';
             
+			var messageWindowContent = '<div id="message">'+'Pothole location saved!'+'</div>';
             
             infoWindow = new google.maps.InfoWindow({
                 content: infoWindowContent,
             });
 
             messageWindow = new google.maps.InfoWindow({
-                content: '<p>Pothole Location Saved!</p>'
-                // content: document.getElementById('message')
-
+                content: messageWindowContent,
             });
-            
-            
 
             google.maps.event.addListener(map, 'click', function(event) {
-                marker = new google.maps.Marker({
+                var marker = new google.maps.Marker({
                     position: event.latLng,
                     map: map,
                     icon: {
@@ -68,13 +55,16 @@
                     }
                 });
                 infoWindow.open(map, marker);
+                saveToDataBase(marker);
         });
+            
+        
         }
 
 
         $(document).ready(function() {
             $.ajax({
-                url: "/api/getCoordinates",
+                url: "/capstone/api/getCoordinates",
                 type: "GET",
                 dataType: "json",
             }).done(function(potholes) {
@@ -104,28 +94,28 @@
 
             }
         }
-
-        $("#save").click(function() {
-            var address = (document.getElementById('address').value);
-            var latLng = marker.getPosition();
-            var apiUrl = "/capstone/api/setCoordinates";
-            $.ajax({
-                url: apiUrl,
-                type: "POST",
-                dataType: "json",
-                data: {
-                    streetName: address,
-                    latitude: latLng.lat(),
-                    longitude: latLng.lng()
-                }
-            }).done(function(number){
-                infoWindow.close();
-                messageWindow.open();
-            }).fail(function(xhr, status, error) {
-                console.log(error);
-            });
-        });
-        
+		function saveToDataBase(marker) {
+	        $("#save").click(function() {
+	            var address = (document.getElementById('address').value);
+	            var latLng = marker.getPosition();
+	            var apiUrl = "/capstone/api/setCoordinates";
+	            $.ajax({
+	                url: apiUrl,
+	                type: "POST",
+	                dataType: "json",
+	                data: {
+	                    streetName: address,
+	                    latitude: latLng.lat(),
+	                    longitude: latLng.lng()
+	                }
+	            }).done(function(number){
+	                infoWindow.close();
+	                messageWindow.open(map, marker);
+	            }).fail(function(xhr, status, error) {
+	                console.log(error);
+	            });
+	        });
+		}
     </script>
 
 
