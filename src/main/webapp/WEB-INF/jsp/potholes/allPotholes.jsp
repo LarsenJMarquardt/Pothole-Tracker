@@ -164,7 +164,8 @@
             center: new google.maps.LatLng(columbusCenterPos),
             zoom: 13,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
-            streetViewControl: false
+            streetViewControl: false,
+			gestureHandling: 'greedy' //Brandon change, gets rid of needing control
         }
         map = new google.maps.Map(document.getElementById('map'),
             mapOptions);
@@ -174,7 +175,7 @@
 		});
 
         messageWindow = new google.maps.InfoWindow({
-			content: '<p>Pothole Location Saved!</p>'
+			content: '<p id = "mapWindow">Pothole Location Saved!</p>' //Brandon addition to add a target for css
 			// content: document.getElementById('message')
 
 		});
@@ -193,8 +194,9 @@
     }
 
  $(document).ready(function() {
+	 
 	$.ajax({
-		url: "/api/getCoordinates",
+		url: "/capstone/api/getCoordinates",
 		type: "GET",
 		dataType: "json",
 	}).done(function(potholes) {

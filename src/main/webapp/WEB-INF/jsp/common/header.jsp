@@ -52,6 +52,13 @@
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
+            <p class="visible-sm">
+                <c:if test="${currentUser != null}">
+                    <p style="color:lightgrey; padding-top: 13px">
+                        Welcome, ${currentUser}!
+                    </p>
+                </c:if>
+            </p>
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#bs-example-navbar-collapse-1"
                     aria-expanded="false">
@@ -79,25 +86,28 @@
                 <li>
                     <a href="${reportHref}">Report Pothole</a>
                 </li>
+
             </ul>
 
+
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <%--<a href="${registerHref}">Register</a>--%>
-                    <a href="#registerModal" data-toggle="modal" data-target="#registerModal">Register</a>
-                </li>
 
 
                 <c:choose>
                     <c:when test="${currentUser != null}">
+                        <li style="color:lightgrey; padding-top: 13px">
+                            Welcome, ${currentUser}!
+                        </li>
                         <li>
                             <a href="${logoutHref}">Logout</a>
                         </li>
                     </c:when>
                     <c:otherwise>
                         <li>
+                            <a href="#registerModal" data-toggle="modal" data-target="#registerModal">Register</a>
+                        </li>
+                        <li>
                             <a href="#loginModal" data-toggle="modal" data-target="#loginModal">Login</a>
-                                <%--<a id="login" href="${loginHref}">Login</a>--%>
                         </li>
 
                     </c:otherwise>
@@ -111,8 +121,6 @@
 </nav>
 <div class="container">
     <!-- Trigger the modal with a button -->
-
-    <%--<button type="button" class="btn btn-default btn-lg" id="myBtn">Login</button>--%>
 
     <!-- Modal -->
     <div class="modal fade" id="loginModal" role="dialog">
@@ -133,7 +141,8 @@
                                    class="form-control"/>
                         </div>
                         <div class="form-group">
-                            <label for="loginPassword"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
+                            <label for="loginPassword"><span class="glyphicon glyphicon-eye-open"></span>
+                                Password</label>
                             <input type="password" id="loginPassword" name="password" placeHolder="Password"
                                    class="form-control"/>
                         </div>
@@ -170,7 +179,7 @@
                 <h4><span class="glyphicon glyphicon-lock"></span> Register</h4>
             </div>
             <div class="modal-body" style="padding:40px 50px;">
-                <form method="POST" action="${registerFormAction}" id = "form">
+                <form method="POST" action="${registerFormAction}" id="form">
                     <div class="form-group">
                         <label for="userName"><span class="glyphicon glyphicon-user"></span> Username</label>
                         <input type="text" id="UserName" name="userName" placeHolder="User Name"

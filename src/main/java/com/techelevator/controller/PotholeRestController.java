@@ -14,7 +14,6 @@ public class PotholeRestController {
 
     @Autowired
     private PotholeDAO potholeDAO;
-    private Pothole pothole;
 
     @RequestMapping(path="/api/setCoordinates", method = RequestMethod.POST)
     public int setCoordinates(Pothole pothole) {
@@ -23,7 +22,7 @@ public class PotholeRestController {
     }
 
     @RequestMapping(path="/api/getCoordinates", method = RequestMethod.GET)
-    public List<Pothole> getCoordinates() {
+    public List<Pothole> getCoordinates(HttpServletRequest request) {
         String orderBy = "report_date";
         List<Pothole> potholes = potholeDAO.getListOfPotholes(orderBy);
         return potholes;
