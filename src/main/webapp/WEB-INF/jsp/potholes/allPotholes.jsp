@@ -157,12 +157,12 @@
     var map;
 
     function initMap() {
-        var columbusCenterPos = {lat: 39.9612, lng: -82.9988};
+        var columbusCenterPos = {lat: 39.998238, lng: -83.043742};
         directionsService = new google.maps.DirectionsService();
         directionsDisplay = new google.maps.DirectionsRenderer();
         var mapOptions = {
             center: new google.maps.LatLng(columbusCenterPos),
-            zoom: 13,
+            zoom: 15,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             streetViewControl: false,
 			gestureHandling: 'greedy' //Brandon change, gets rid of needing control
