@@ -21,8 +21,6 @@
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhZ4dsKOQPtb3_-VdaqZ9dfYtrjhHC0-I&callback=initMap"
             async defer type="text/javascript"></script>
     <script>
-    
-    
         var map;
         var marker;
         var infoWindow;

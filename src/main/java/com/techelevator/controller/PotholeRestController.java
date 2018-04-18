@@ -22,7 +22,7 @@ public class PotholeRestController {
     }
 
     @RequestMapping(path="/api/getCoordinates", method = RequestMethod.GET)
-    public List<Pothole> getCoordinates(HttpServletRequest request) {
+    public List<Pothole> getCoordinates() {
         String orderBy = "report_date";
         List<Pothole> potholes = potholeDAO.getListOfPotholes(orderBy);
         return potholes;
