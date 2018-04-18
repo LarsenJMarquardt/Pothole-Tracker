@@ -36,114 +36,115 @@
             </div>
         </div>
     </div>
-    
+
     <div class="allPotholes hidden-xs hidden-sm">
-    		<div class="container">
-    			<section id="pothole">
-    				<div class="row">
-    					<div class="col-md-2">
-    						<b>Street Name</b>
-    					</div>
-    					<div class="col-md-10">
-    						<div class="row">
-	                        	<div class="col-md-2">
-	                        		Reported
-	                        	</div>
-	                        	<div class="col-md-2">
-	                        		
-	                        	</div>
-	                        	<div class="col-md-2">
-	                        		Status Code
-	                        	</div>
-	                        	<div class="col-md-2">
-	                        		Status Date
-	                        	</div>
-	                        	<div class="col-md-2">
-	                        		Severity
-	                        	</div>
-	                     </div>
-    					</div>
-    				</div>
-    			</section>
-    		</div>
+        <div class="container">
+            <section id="pothole">
+                <div class="row">
+                    <div class="col-md-2">
+                        <b>Street Name</b>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-2">
+                                Reported
+                            </div>
+                            <div class="col-md-2">
+
+                            </div>
+                            <div class="col-md-2">
+                                Status Code
+                            </div>
+                            <div class="col-md-2">
+                                Status Date
+                            </div>
+                            <div class="col-md-2">
+                                Severity
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
-    
-    
+
+
     <div class="allPotholes">
         <c:forEach items="${allPotholes}" var="pothole">
 
-			<c:url var="potholeIdLink" value="/potholes/employeePotholeUpdate">
-				<c:param name="potholeId" value="${pothole.id}"/>
-			</c:url>
+            <c:url var="potholeIdLink" value="/potholes/employeePotholeUpdate">
+                <c:param name="potholeId" value="${pothole.id}"/>
+            </c:url>
 
             <div class="container">
                 <section id="pothole" class="hidden-xs hidden-sm">
                     <div class="row">
-                    		<div class="col-md-2">
-								<c:choose>
-								<c:when test="${isEmployee == false}">
-	                        		<p style="font-size: 15px"><b><c:out value="${pothole.streetName}"/></b></p>
-								</c:when>
-								<c:otherwise>
-									<p style="font-size: 15px"><a href="${potholeIdLink}"><b><c:out value="${pothole.streetName}"/></b></a></p>
-								</c:otherwise>
-								</c:choose>
-							</div>
+                        <div class="col-md-2">
+                            <c:choose>
+                                <c:when test="${isEmployee == false}">
+                                    <p style="font-size: 15px"><b><c:out value="${pothole.streetName}"/></b></p>
+                                </c:when>
+                                <c:otherwise>
+                                    <p style="font-size: 15px"><a href="${potholeIdLink}"><b><c:out
+                                            value="${pothole.streetName}"/></b></a></p>
+                                </c:otherwise>
+                            </c:choose>
+                        </div>
 
-	                     <div class="col-md-10">
-	                        <div class="row">
-	                        		<div class="col-md-2">
-	                            		<p><c:out value="${pothole.reportDate}"/></p>
-		                        </div>
-		                        <div class="col-md-2">
-		                           
-		                        </div>
-		                        <div class="col-md-2">
-		                        		<p><c:out value="${pothole.statusCode}"/></p>
-		                        </div>
-		                        <div class="col-md-2">
-		                            <p><c:out value="${pothole.statusDate}"/></p>
-		                        </div>
-		                        <div class="col-md-2" style="display:flex;justify-content: center">
-		                            <p><c:url var="severityImgLink" value="/img/${pothole.severity}.png" />
-                            			<img class="severity-img" src="${severityImgLink}" alt="Severity"></p>
-		                        </div>
-                        		</div>
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <p><c:out value="${pothole.reportDate}"/></p>
+                                </div>
+                                <div class="col-md-2">
+
+                                </div>
+                                <div class="col-md-2">
+                                    <p><c:out value="${pothole.statusCode}"/></p>
+                                </div>
+                                <div class="col-md-2">
+                                    <p><c:out value="${pothole.statusDate}"/></p>
+                                </div>
+                                <div class="col-md-2" style="display:flex;justify-content: center">
+                                    <p><c:url var="severityImgLink" value="/img/${pothole.severity}.png"/>
+                                        <img class="severity-img" src="${severityImgLink}" alt="Severity"></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <hr>
-                  </section>
-                  
-                  <section id="pothole" class="hidden-md hidden-s hidden-lg">
-                  	<div class="row">
-                    		<div class="col-md-2">
-	                        		<p style="font-size: 20px"><b><c:out value="${pothole.streetName}"/></b></p>
-	                     </div>
-	                        
-	                     <div class="col-md-10">
-	                        <div class="row">
-	                        		<div class="col-md-2">
-	                            		<p><b>Reported: </b><c:out value="${pothole.reportDate}"/></p>
-		                        </div>
-		                        <div class="col-md-2">
-		                            
-		                        </div>
-		                        <div class="col-md-2">
-		                        		<p> <b>Status Code: </b><c:out value="${pothole.statusCode}"/></p>
-		                        </div>
-		                        <div class="col-md-2">
-		                            <p><b>Status Date: </b> <c:out value="${pothole.statusDate}"/></p>
-		                        </div>
-		                        <div class="col-md-2" style="display:flex;justify-content: center">
-		                            <p><c:url var="severityImgLink" value="/img/${pothole.severity}.png" />
-                            			<img class="severity-img" src="${severityImgLink}" alt="Severity"></p>
-		                        </div>
-                        		</div>
+                </section>
+
+                <section id="pothole" class="hidden-md hidden-s hidden-lg">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <p style="font-size: 20px"><b><c:out value="${pothole.streetName}"/></b></p>
+                        </div>
+
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <p><b>Reported: </b><c:out value="${pothole.reportDate}"/></p>
+                                </div>
+                                <div class="col-md-2">
+
+                                </div>
+                                <div class="col-md-2">
+                                    <p><b>Status Code: </b><c:out value="${pothole.statusCode}"/></p>
+                                </div>
+                                <div class="col-md-2">
+                                    <p><b>Status Date: </b> <c:out value="${pothole.statusDate}"/></p>
+                                </div>
+                                <div class="col-md-2" style="display:flex;justify-content: center">
+                                    <p><c:url var="severityImgLink" value="/img/${pothole.severity}.png"/>
+                                        <img class="severity-img" src="${severityImgLink}" alt="Severity"></p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <hr>
-                  </section>
-                   
+                </section>
+
             </div>
 
         </c:forEach>
@@ -151,7 +152,7 @@
 </div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhZ4dsKOQPtb3_-VdaqZ9dfYtrjhHC0-I&callback=initMap"
-		async defer type="text/javascript"></script>
+        async defer type="text/javascript"></script>
 
 <script>
     var map;
@@ -165,78 +166,83 @@
             zoom: 15,
             mapTypeId: google.maps.MapTypeId.ROADMAP,
             streetViewControl: false,
-			gestureHandling: 'greedy' //Brandon change, gets rid of needing control
+            gestureHandling: 'greedy'
         }
         map = new google.maps.Map(document.getElementById('map'),
             mapOptions);
     }
 
- $(document).ready(function() {
-	 
-	$.ajax({
-		url: "/capstone/api/getCoordinates",
-		type: "GET",
-		dataType: "json",
-	}).done(function(potholes) {
-		populateMap(potholes);
-    }).fail(function(xhr, status, error) {
-        console.log(error);
-	});
+    $(document).ready(function () {
 
- });
- 
-	var object_infowindow = [];
-    
-	function populateMap(potholes) {
+        $.ajax({
+            url: "../api/getCoordinates",
+            type: "GET",
+            dataType: "json",
+        }).done(function (potholes) {
+            populateMap(potholes);
+        }).fail(function (xhr, status, error) {
+            console.log(error);
+        });
 
-		for (var i = 0; i < potholes.length; i++) {
+    });
+
+    var object_infowindow = [];
+
+    function populateMap(potholes) {
+
+        for (var i = 0; i < potholes.length; i++) {
             var address = potholes[i].streetName;
-			var lat = potholes[i].latitude;
+            var lat = potholes[i].latitude;
             var lng = potholes[i].longitude;
             var severity = potholes[i].severity;
+            var statusCode = potholes[i].statusCode;
+            var statusDate = potholes[i].statusDateToString;
+            var reportDate = potholes[i].reportDateToString;
 
             var marker = new google.maps.Marker({
-				position: {lat: lat, lng: lng},
-				map: map,
-				address: address,
+                position: {lat: lat, lng: lng},
+                map: map,
+                address: address,
                 icon: {
                     url: '../img/map_' + severity + '.png',
                     scaledSize: new google.maps.Size(40, 40)
                 }
             });
-            	
-            var info = '<div id="content">'+
-                '<h3 id="firstHeading" class="firstHeading">'+address+'</h1>' +
+
+            var info = '<div id="content">' +
+                '<h3 id="firstHeading" class="firstHeading">' + address + '</h3>' +
+                '<h3 id="firstHeading" class="firstHeading">' + 'Report Date: ' + reportDate + '</h3>' +
+                '<h3 id="firstHeading" class="firstHeading">' + 'Status Date: ' + statusDate + '</h3>' +
+                '<h3 id="firstHeading" class="firstHeading">' + 'Status Code: ' + statusCode + '</h3>' +
                 '</div>';
-                
+
             object_infowindow['infowindow' + i] = new google.maps.InfoWindow({
-        		content: info,
-             });
-            
-            var onclick = function(object_infowindow,marker){
-            	      var obj = object_infowindow;
-            	      return function(){
-            	      obj.open(map,marker);
-            	      }
-            	}
-            
-            var onMouseOut = function(object_infowindow,marker){
-      	      var obj = object_infowindow;
-      	      return function(){
-      	      obj.close(map,marker);
-	      	      }
-	      	}
-            
+                content: info,
+            });
 
-            	google.maps.event.addListener(marker, 'click', onclick(object_infowindow['infowindow' + i], marker) );
-            	
-            	google.maps.event.addListener(marker, 'mouseout', onMouseOut(object_infowindow['infowindow' + i], marker) );
-            		
-		}
-	} 
+            var onclick = function (object_infowindow, marker) {
+                var obj = object_infowindow;
+                return function () {
+                    obj.open(map, marker);
+                }
+            }
 
-	  
-	  
+            var onMouseOut = function (object_infowindow, marker) {
+                var obj = object_infowindow;
+                return function () {
+                    obj.close(map, marker);
+                }
+            }
+
+
+            google.maps.event.addListener(marker, 'click', onclick(object_infowindow['infowindow' + i], marker));
+
+            google.maps.event.addListener(marker, 'mouseout', onMouseOut(object_infowindow['infowindow' + i], marker));
+
+        }
+    }
+
+
 </script>
 
 <c:import url="/WEB-INF/jsp/common/footer.jsp"/>
