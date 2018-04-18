@@ -101,10 +101,4 @@ public class JdbcPotholeDAO implements PotholeDAO {
         thePothole.setReportDate(results.getDate("report_date").toLocalDate());
         return thePothole;
     }
-
-	
-
-
-
-	
 }
