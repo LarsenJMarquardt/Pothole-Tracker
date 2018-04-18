@@ -168,7 +168,7 @@
  $(document).ready(function() {
 	 
 	$.ajax({
-		url: "/api/getCoordinates",
+		url: "/capstone/api/getCoordinates",
 		type: "GET",
 		dataType: "json",
 	}).done(function(potholes) {
@@ -215,7 +215,7 @@
             	      }
             	}
             
-            var onblur = function(object_infowindow,marker){
+            var onMouseOut = function(object_infowindow,marker){
       	      var obj = object_infowindow;
       	      return function(){
       	      obj.close(map,marker);
@@ -225,7 +225,7 @@
 
             	google.maps.event.addListener(marker, 'click', onclick(object_infowindow['infowindow' + i], marker) );
             	
-            	google.maps.event.addListener(marker, 'blur', onblur(object_infowindow['infowindow' + i], marker) );
+            	google.maps.event.addListener(marker, 'mouseout', onMouseOut(object_infowindow['infowindow' + i], marker) );
             		
 		}
 	} 
