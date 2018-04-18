@@ -74,13 +74,6 @@
 
         function populateMap(potholes) {
 
-
-
-            var icon = {
-                url: '../img/map_0.png',
-                scaledSize: new google.maps.Size(50, 50)
-            }
-
             for (var i = 0; i < potholes.length; i++) {
                 var address = potholes[i].streetName;
                 var lat = potholes[i].latitude;
@@ -93,7 +86,7 @@
                     address: address,
                     icon: {
                         url: '../img/map_' + severity + '.png',
-                        scaledSize: new google.maps.Size(50, 50)
+                        scaledSize: new google.maps.Size(40, 40)
                     }
                 });
 
