@@ -29,7 +29,7 @@ public class PotHoleController {
     public String showAllPotholes(Model model, @RequestParam(required = false) String orderBy, HttpSession session) {
 
         if (session.getAttribute("isEmployee") == null)
-          session.setAttribute("isEmployee", false);
+            session.setAttribute("isEmployee", false);
 
         if (orderBy == null) {
             orderBy = "report_date";
@@ -50,7 +50,7 @@ public class PotHoleController {
     }
 
     @RequestMapping(path = "/potholes/employeePotholeUpdate", method = RequestMethod.POST)
-    public String employeeModifyPotholePost(@RequestParam long potholeId, @RequestParam int severity, @RequestParam String statusCode, @RequestParam("statusDate") @DateTimeFormat(pattern="yyyy-MM-dd") Date statusDate) {
+    public String employeeModifyPotholePost(@RequestParam long potholeId, @RequestParam int severity, @RequestParam String statusCode, @RequestParam("statusDate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date statusDate) {
 
         LocalDate localDate = statusDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
 
@@ -71,7 +71,7 @@ public class PotHoleController {
     @RequestMapping(path = "/potholes/report", method = RequestMethod.GET)
     public String showReport(Model model, HttpSession session, RedirectAttributes attr) {
 
-        String currentUser =  (String)session.getAttribute("currentUser");
+        String currentUser = (String) session.getAttribute("currentUser");
 
         if (currentUser != null) {
             return "/potholes/report";
