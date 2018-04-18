@@ -62,7 +62,7 @@
 
         $(document).ready(function() {
             $.ajax({
-                url: "/capstone/api/getCoordinates",
+                url: "/api/getCoordinates",
                 type: "GET",
                 dataType: "json",
             }).done(function(potholes) {
@@ -74,15 +74,27 @@
 
         function populateMap(potholes) {
 
+
+
+            var icon = {
+                url: '../img/map_0.png',
+                scaledSize: new google.maps.Size(50, 50)
+            }
+
             for (var i = 0; i < potholes.length; i++) {
                 var address = potholes[i].streetName;
                 var lat = potholes[i].latitude;
                 var lng = potholes[i].longitude;
+                var severity = potholes[i].severity;
 
                 var marker = new google.maps.Marker({
                     position: {lat: lat, lng: lng},
                     map: map,
-                    address: address
+                    address: address,
+                    icon: {
+                        url: '../img/map_' + severity + '.png',
+                        scaledSize: new google.maps.Size(50, 50)
+                    }
                 });
 
             }
@@ -91,7 +103,7 @@
         $("#save").click(function() {
             var address = (document.getElementById('address').value);
             var latLng = marker.getPosition();
-            var apiUrl = "/capstone/api/setCoordinates";
+            var apiUrl = "/api/setCoordinates";
             $.ajax({
                 url: apiUrl,
                 type: "POST",
