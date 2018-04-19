@@ -59,7 +59,14 @@
                 <span class="icon-bar"></span>
             </button>
             <div class="navbar-brand">
-                <c:out value="${currentUser}"/>
+                <%--<c:choose>--%>
+                    <%--<c:when test="${userName != null}">--%>
+                        <c:out value="${currentUser}"/>
+                    <%--</c:when>--%>
+                    <%--<c:otherwise>--%>
+                        <%--<c:out value="Guest"/>--%>
+                    <%--</c:otherwise>--%>
+                <%--</c:choose>--%>
             </div>
         </div>
 

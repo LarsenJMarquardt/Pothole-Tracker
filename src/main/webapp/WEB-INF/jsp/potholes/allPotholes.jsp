@@ -210,7 +210,7 @@
             });
 
             var info = '<div id="content">' +
-                '<h3 id="firstHeading" class="firstHeading">' + address + '</h3>' +
+                '<h3 id="firstHeading" class="firstHeading">' + "<img src=../img/" + severity + ".png width='30px'>"+ address + '</h3>' +
                 '<h5 id="firstHeading" class="firstHeading">' + '<b>' + 'Report Date: ' + '</b>' + reportDate + '</h5>' +
                 '<h5 id="firstHeading" class="firstHeading">' + '<b>' + 'Status Date: ' + '</b>' + statusDate + '</h5>' +
                 '<h5 id="firstHeading" class="firstHeading">' + '<b>' + 'Status Code: ' + '</b>' + statusCode + '</h5>' +
