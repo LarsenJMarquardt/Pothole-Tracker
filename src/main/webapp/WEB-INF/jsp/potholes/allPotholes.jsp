@@ -175,7 +175,7 @@
     $(document).ready(function () {
 
         $.ajax({
-            url: "/capstone/api/getCoordinates",
+            url: "../api/getCoordinates",
             type: "GET",
             dataType: "json",
         }).done(function (potholes) {
@@ -210,7 +210,7 @@
             });
 
             var info = '<div id="content">' +
-                '<h5 id="firstHeading" class="firstHeading">' + address + '</h5>' +
+                '<h3 id="firstHeading" class="firstHeading">' + address + '</h3>' +
                 '<h5 id="firstHeading" class="firstHeading">' + '<b>' + 'Report Date: ' + '</b>' + reportDate + '</h5>' +
                 '<h5 id="firstHeading" class="firstHeading">' + '<b>' + 'Status Date: ' + '</b>' + statusDate + '</h5>' +
                 '<h5 id="firstHeading" class="firstHeading">' + '<b>' + 'Status Code: ' + '</b>' + statusCode + '</h5>' +
