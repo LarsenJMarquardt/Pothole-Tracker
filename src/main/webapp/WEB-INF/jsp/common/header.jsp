@@ -67,13 +67,13 @@
 
             <ul class="nav navbar-nav navbar-left">
                 <li class="active">
-                    <a href="${homePageHref}">Home</a>
+                    <a href="${homePageHref}"><span class="glyphicon glyphicon-home"></span> Home</a>
                 </li>
                 <li>
-                    <a href="${allPotholesHref}">Pothole List</a>
+                    <a href="${allPotholesHref}"><span class="glyphicon glyphicon-list"></span> Pothole List</a>
                 </li>
                 <li>
-                    <a href="${reportHref}">Report Pothole</a>
+                    <a href="${reportHref}"><span class="glyphicon glyphicon-road"></span> Report Pothole</a>
                 </li>
 
             </ul>
@@ -83,15 +83,15 @@
                 <c:choose>
                     <c:when test="${currentUser != null}">
                         <li>
-                            <a href="${logoutHref}">Logout</a>
+                            <a href="${logoutHref}"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
                         </li>
                     </c:when>
                     <c:otherwise>
                         <li>
-                            <a href="#registerModal" data-toggle="modal" data-target="#registerModal">Register</a>
+                            <a href="#registerModal" data-toggle="modal" data-target="#registerModal"><span class="glyphicon glyphicon-user"></span> Register</a>
                         </li>
                         <li>
-                            <a href="#loginModal" data-toggle="modal" data-target="#loginModal">Login</a>
+                            <a href="#loginModal" data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a>
                         </li>
 
                     </c:otherwise>
