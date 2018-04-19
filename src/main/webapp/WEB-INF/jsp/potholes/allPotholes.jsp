@@ -211,9 +211,9 @@
 
             var info = '<div id="content">' +
                 '<h3 id="firstHeading" class="firstHeading">' + "<img src=../img/" + severity + ".png width='30px'>"+ address + '</h3>' +
-                '<h5 id="firstHeading" class="firstHeading">' + '<b>' + 'Report Date: ' + '</b>' + reportDate + '</h5>' +
-                '<h5 id="firstHeading" class="firstHeading">' + '<b>' + 'Status Date: ' + '</b>' + statusDate + '</h5>' +
-                '<h5 id="firstHeading" class="firstHeading">' + '<b>' + 'Status Code: ' + '</b>' + statusCode + '</h5>' +
+                '<h5 id="firstHeading" class="firstHeading" style="color: hsl(0, 0%, 45%);">' + '<b style="color: hsl(0, 0%, 13%);">' + 'Report Date: ' + '</b>' + reportDate + '</h5>' +
+                '<h5 id="firstHeading" class="firstHeading" style="color: hsl(0, 0%, 45%);">' + '<b style="color: hsl(0, 0%, 13%);">' + 'Status Date: ' + '</b>' + statusDate + '</h5>' +
+                '<h5 id="firstHeading" class="firstHeading" style="color: hsl(0, 0%, 45%);">' + '<b style="color: hsl(0, 0%, 13%);">' + 'Status Code: ' + '</b>' + statusCode + '</h5>' +
                 '</div>';
 
             object_infowindow['infowindow' + i] = new google.maps.InfoWindow({

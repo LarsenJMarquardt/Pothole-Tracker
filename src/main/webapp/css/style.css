@@ -212,3 +212,8 @@ hr {
     background-color: white;
     opacity: 0.75;
 }
+
+h3{
+	color: hsl(0, 0%, 45%);
+
+}
