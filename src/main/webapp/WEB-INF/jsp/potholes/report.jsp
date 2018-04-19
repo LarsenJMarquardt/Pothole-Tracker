@@ -31,8 +31,8 @@
                     mapOptions);
 
                 var infoWindowContent = '<div id="mapPothole">' +
-                    '<table>'+'<tr>'+'<td>'+'Street name:'+'</td>'+ '<td>'+'<input type="text" minlength="4" id="address"/>' +'</td>'+'</tr>'+
-                    '<tr>'+'<td>'+'</td>'+'<td>'+'<input type="button" value="Report" id="save"/>'+'</td>'+'</tr>' +
+                    '<table>'+'<tr>'+'<td>'+'Street name: '+'</td>'+ '<td>'+'<input type="text" minlength="4" id="address" class="form-control"/>' +'</td>'+'</tr>'+
+                    '<tr>'+'<td>'+'</td>'+'<td>'+'<input type="button" class="btn btn-warning pull-right" style="margin-top: 5px" value="Report" id="save"/>'+'</td>'+'</tr>' +
                     '</table>'+
                     '</div>';
 
@@ -65,7 +65,7 @@
 
             $(document).ready(function() {
                 $.ajax({
-                    url: "../api/getCoordinates",
+                    url: "/capstone/api/getCoordinates",
                     type: "GET",
                     dataType: "json",
                 }).done(function(potholes) {
@@ -99,7 +99,7 @@
                 $("#save").click(function() {
                     var address = (document.getElementById('address').value);
                     var latLng = marker.getPosition();
-                    var apiUrl = "../api/setCoordinates";
+                    var apiUrl = "/capstone/api/setCoordinates";
                     $.ajax({
                         url: apiUrl,
                         type: "POST",

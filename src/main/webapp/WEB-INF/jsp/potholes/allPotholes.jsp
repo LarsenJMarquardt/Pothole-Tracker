@@ -175,7 +175,7 @@
     $(document).ready(function () {
 
         $.ajax({
-            url: "../api/getCoordinates",
+            url: "/capstone/api/getCoordinates",
             type: "GET",
             dataType: "json",
         }).done(function (potholes) {
@@ -210,10 +210,10 @@
             });
 
             var info = '<div id="content">' +
-                '<h3 id="firstHeading" class="firstHeading">' + address + '</h3>' +
-                '<h3 id="firstHeading" class="firstHeading">' + 'Report Date: ' + reportDate + '</h3>' +
-                '<h3 id="firstHeading" class="firstHeading">' + 'Status Date: ' + statusDate + '</h3>' +
-                '<h3 id="firstHeading" class="firstHeading">' + 'Status Code: ' + statusCode + '</h3>' +
+                '<h5 id="firstHeading" class="firstHeading">' + address + '</h5>' +
+                '<h5 id="firstHeading" class="firstHeading">' + 'Report Date: ' + reportDate + '</h5>' +
+                '<h5 id="firstHeading" class="firstHeading">' + 'Status Date: ' + statusDate + '</h5>' +
+                '<h5 id="firstHeading" class="firstHeading">' + 'Status Code: ' + statusCode + '</h5>' +
                 '</div>';
 
             object_infowindow['infowindow' + i] = new google.maps.InfoWindow({
