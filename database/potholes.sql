@@ -44,6 +44,8 @@ INSERT INTO pothole (street_name, status_code, status_date, severity, latitude, 
 
 INSERT INTO app_user (user_name, password) VALUES ('Sally', 'sally');
 INSERT INTO app_user (user_name, password, is_employee) VALUES ('Employee', 'employee', true);
+INSERT INTO app_user (user_name, password, is_employee) VALUES ('Brandon', 'brandon', true);
+
 
 
 
