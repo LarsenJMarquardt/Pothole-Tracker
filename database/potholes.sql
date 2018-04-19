@@ -24,12 +24,6 @@ CREATE TABLE app_user
   CONSTRAINT pk_app_user_user_name PRIMARY KEY (user_name)
 );
 
-INSERT INTO pothole (street_name, status_code, status_date, severity, latitude, longitude, report_date) VALUES ('Brian Rd', 'reported', '20180220', 0, 39.996564, -83.036832, '20180220');
-INSERT INTO pothole (street_name, status_code, status_date, severity, latitude, longitude, report_date) VALUES ('Katie Dr', 'inspected', '20180204', 3, 39.9928559, -83.0415075, '20170808');
-INSERT INTO pothole (street_name, status_code, status_date, severity, latitude, longitude, report_date) VALUES ('John Blvd', 'repaired', '20180216', 2, 40.000705, -83.038935, '20170809');
-INSERT INTO pothole (street_name, status_code, status_date, severity, latitude, longitude, report_date) VALUES ('Steve Ave', 'reported', '20180206', 0, 39.998238, -83.043742, '20180206');
-INSERT INTO pothole (street_name, status_code, status_date, severity, latitude, longitude, report_date) VALUES ('Ben Ct', 'reported', '20180210', 0, 39.998895, -83.049836, '20180210');
-
 INSERT INTO pothole (street_name, status_code, status_date, severity, latitude, longitude, report_date) VALUES ('E Hoster St', 'inspected', '20180330', 3, 39.951228, -82.997171, '20171029');
 INSERT INTO pothole (street_name, status_code, status_date, severity, latitude, longitude, report_date) VALUES ('Sullivant Ave', 'inspected', '20180410', 1, 39.953117, -83.022286, '20170920');
 INSERT INTO pothole (street_name, status_code, status_date, severity, latitude, longitude, report_date) VALUES ('E Main St', 'reported', '20180130', 0, 39.957543, -82.987622, '20180130');
@@ -48,8 +42,10 @@ INSERT INTO pothole (street_name, status_code, status_date, severity, latitude, 
 INSERT INTO pothole (street_name, status_code, status_date, severity, latitude, longitude, report_date) VALUES ('N High St', 'reported', '20180222', 0, 40.002273, -83.008581, '20180222');
 INSERT INTO pothole (street_name, status_code, status_date, severity, latitude, longitude, report_date) VALUES ('Hunter Ave', 'repaired', '20180118', 1, 39.982361, -83.009868, '20170820');
 
-INSERT INTO app_user (user_name, password) VALUES ('Sally_User', 'sally');
-INSERT INTO app_user (user_name, password, is_employee) VALUES ('Not_Sally', 'notsally', true);
+INSERT INTO app_user (user_name, password) VALUES ('Sally', 'sally');
+INSERT INTO app_user (user_name, password, is_employee) VALUES ('Employee', 'employee', true);
+INSERT INTO app_user (user_name, password, is_employee) VALUES ('Brandon', 'brandon', true);
+
 
 
 
