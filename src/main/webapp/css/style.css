@@ -198,3 +198,17 @@ hr {
     color: white;
     text-align: center;
 }
+
+
+.body {
+    background-image: url("../img/The-road-to-black-and-white.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.allPotholes {
+    background-color: white;
+    opacity: 0.4;
+}

@@ -37,7 +37,7 @@
 
 </head>
 
-<body>
+<body class="body">
 
 <c:url value="/" var="homePageHref"/>
 <c:url value="/potholes/allPotholes" var="allPotholesHref"/>
@@ -59,7 +59,7 @@
                 <span class="icon-bar"></span>
             </button>
             <div class="navbar-brand">
-                <c:out value="${currentUser}" />
+                <c:out value="${currentUser}"/>
             </div>
         </div>
 
@@ -88,10 +88,12 @@
                     </c:when>
                     <c:otherwise>
                         <li>
-                            <a href="#registerModal" data-toggle="modal" data-target="#registerModal"><span class="glyphicon glyphicon-user"></span> Register</a>
+                            <a href="#registerModal" data-toggle="modal" data-target="#registerModal"><span
+                                    class="glyphicon glyphicon-user"></span> Register</a>
                         </li>
                         <li>
-                            <a href="#loginModal" data-toggle="modal" data-target="#loginModal"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+                            <a href="#loginModal" data-toggle="modal" data-target="#loginModal"><span
+                                    class="glyphicon glyphicon-log-in"></span> Login</a>
                         </li>
 
                     </c:otherwise>
@@ -183,9 +185,6 @@
                                placeHolder="Re-Type Password" class="form-control"/>
                     </div>
 
-                    <%--<div class="checkbox">--%>
-                    <%--<label><input type="checkbox" value="" checked>Remember me</label>--%>
-                    <%--</div>--%>
                     <button type="submit" class="btn btn-warning btn-block"><span
                             class="glyphicon glyphicon-off"></span> Create User
                     </button>
@@ -195,8 +194,7 @@
                 <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span
                         class="glyphicon glyphicon-remove"></span> Cancel
                 </button>
-                <%--<p>Not a member? <a href="#">Sign Up</a></p>--%>
-                <%--<p>Forgot <a href="#">Password?</a></p>--%>
+
             </div>
         </div>
 
