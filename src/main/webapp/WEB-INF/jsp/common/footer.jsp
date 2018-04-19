@@ -1,7 +1,7 @@
 </main>
 
 
-<footer>
+<footer class="footer">
     <p class="copyright">Copyright Team Delta 2018</p>
 </footer>
 </body>

@@ -184,3 +184,17 @@ hr {
 	font-size: 23px !important;
 	padding: 10%;
 }
+
+.copyright {
+    padding: 0px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-image: linear-gradient(to top, #141414, #0f0f0f, #1d1c1c, #343233, #3f3d3d);
+    color: white;
+    text-align: center;
+}
