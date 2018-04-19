@@ -17,12 +17,12 @@
             var messageWindow;
 
             function initMap() {
-                var columbusCenterPos = {lat: 39.998238, lng: -83.043742};
+                var columbusCenterPos = {lat: 39.964613, lng: -83.003502};
                 directionsService = new google.maps.DirectionsService();
                 directionsDisplay = new google.maps.DirectionsRenderer();
                 var mapOptions = {
                     center: new google.maps.LatLng(columbusCenterPos),
-                    zoom: 15,
+                    zoom: 14,
                     mapTypeId: google.maps.MapTypeId.ROADMAP,
                     streetViewControl: false,
                     gestureHandling: 'greedy'
