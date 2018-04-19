@@ -38,6 +38,7 @@
 </head>
 
 <body>
+
 <c:url value="/" var="homePageHref"/>
 <c:url value="/potholes/allPotholes" var="allPotholesHref"/>
 <c:url value="/potholes/report" var="reportHref"/>
@@ -58,7 +59,7 @@
                 <span class="icon-bar"></span>
             </button>
             <div class="navbar-brand">
-                ${currentUser}
+                <c:out value="${currentUser}" />
             </div>
         </div>
 

@@ -175,7 +175,7 @@
     $(document).ready(function () {
 
         $.ajax({
-            url: "../api/getCoordinates",
+            url: "/capstone/api/getCoordinates",
             type: "GET",
             dataType: "json",
         }).done(function (potholes) {
