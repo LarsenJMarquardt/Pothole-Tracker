@@ -210,10 +210,10 @@
             });
 
             var info = '<div id="content">' +
-                '<h3 id="firstHeading" class="firstHeading">' + address + '</h3>' +
-                '<h3 id="firstHeading" class="firstHeading">' + 'Report Date: ' + reportDate + '</h3>' +
-                '<h3 id="firstHeading" class="firstHeading">' + 'Status Date: ' + statusDate + '</h3>' +
-                '<h3 id="firstHeading" class="firstHeading">' + 'Status Code: ' + statusCode + '</h3>' +
+                '<h5 id="firstHeading" class="firstHeading">' + address + '</h5>' +
+                '<h5 id="firstHeading" class="firstHeading">' + '<b>' + 'Report Date: ' + '</b>' + reportDate + '</h5>' +
+                '<h5 id="firstHeading" class="firstHeading">' + '<b>' + 'Status Date: ' + '</b>' + statusDate + '</h5>' +
+                '<h5 id="firstHeading" class="firstHeading">' + '<b>' + 'Status Code: ' + '</b>' + statusCode + '</h5>' +
                 '</div>';
 
             object_infowindow['infowindow' + i] = new google.maps.InfoWindow({
