@@ -5,7 +5,13 @@ h1 {
 	font-family: sans-serif; 
 	margin: 0 auto; 
 	padding: 50px 10px 20px 10px;
-	color: pink;
+}
+
+.title {
+	color: #F8AB3E;
+	font-family: Lobster, sans-serif;
+	font-size: 45px;
+	
 }
 
 img {
@@ -58,7 +64,8 @@ a {
 	}
 	
 footer {
-	padding-top: 20px; 
+	padding-top: 10px; 
+	padding-bottom: 5px;
 }
 
 #allPotholeList {
@@ -66,12 +73,14 @@ footer {
 	padding-left: 10%;
 	border-top-width: 25px;
 	padding-right: 10%;
+	margin-bottom: 200px;
 }
 
 #report {
 	padding-left: 10%;
 	border-top-width: 25px;
 	padding-right: 10%;
+	margin-bottom: 200px;
 }
 
 hr {
@@ -100,15 +109,14 @@ hr {
 	border-color: hsl(0, 0%, 90%);
 	margin: 0% 20% 3% 20%;
 	text-align: left;
+	background: white;
+	opacity: 0.92;
 }
 
 .innerUpdate {
 	padding-left: 10%;
 	padding-right: 10%;
 	padding-top: 10px;
-	background: white;
-	opacity: 0.75;
-	
 }
 
 
@@ -134,6 +142,7 @@ hr {
 #map {
 	margin: 0 auto;
 	height: 65%;
+	border-radius: 10px;
 }
 
 .modal-content{
@@ -156,13 +165,22 @@ hr {
 }
 
 #home{
-	background-color: lightgray;
+	background-color: white;
+	/* background-image: url("../img/shortnorth.jpg");
+	background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover; */
 }
 
 .home-content {
-	background-color: lightgray;
-	border-radius: 10px;
+	background-color: #EBCDA2;
+	background-opacity:0.4 !important;
 	margin: 0% 10% 0% 10%;
+	border-style: solid;
+	border-width: 10px;
+	border-radius: 40px;
+	border-color: hsl(0, 0%, 30%);
 }
 
 .error {
@@ -212,7 +230,7 @@ hr {
 
 .allPotholes {
     background-color: white;
-    opacity: 0.75;
+    opacity: 0.92;
 }
 
 h3{

@@ -26,23 +26,39 @@
     });
 </script>
 
-<div class="row">
-    <div class="col-sm-4"></div>
-    <div class="col-sm-4">
-        <c:url var="formAction" value="/user/login"/>
-        <form id="loginForm" method="POST" action="${formAction}">
-            <div class="form-group">
-                <label for="userName">User Name: </label>
-                <input type="text" id="userName" name="userName" placeHolder="User Name" class="form-control"/>
-            </div>
-            <div class="form-group">
-                <label for="password">Password: </label>
-                <input type="password" id="password" name="password" placeHolder="Password" class="form-control"/>
-            </div>
-            <button type="submit" class="btn btn-warning">Login</button>
-        </form>
-    </div>
-    <div class="col-sm-4"></div>
+
+
+
+<div class="updatePothole" style="text-align: center">
+
+
+	<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-12">
+					<p style="color: red">Please login.</p>
+				</div>
+			</div>
+			
+				<div class="col-md-12">
+
+				<c:url var="formAction" value="/user/login" />
+				<form id="loginForm" method="POST" action="${formAction}">
+					<div class="form-group">
+						<label for="userName">User Name: </label> <input type="text"
+							id="userName" name="userName" placeHolder="User Name"
+							class="form-control" />
+					</div>
+					<div class="form-group">
+						<label for="password">Password: </label> <input type="password"
+							id="password" name="password" placeHolder="Password"
+							class="form-control" />
+					</div>
+					<button type="submit" class="btn btn-warning">Login</button>
+				</form>
+			</div>
+			
+		</div>
+	</div>
 </div>
 
 

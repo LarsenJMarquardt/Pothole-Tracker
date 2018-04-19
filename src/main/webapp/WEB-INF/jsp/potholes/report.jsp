@@ -6,7 +6,7 @@
 
 <div id="report">
     <div class="container-fluid">
-        <h1>Report a Pothole</h1>
+        <h1 class="title">Report a Pothole</h1>
         <div id="map"></div>
 
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhZ4dsKOQPtb3_-VdaqZ9dfYtrjhHC0-I&callback=initMap"
@@ -57,6 +57,7 @@
                     });
                     infoWindow.open(map, marker);
                     saveToDataBase(marker);
+                    
                 });
 
 

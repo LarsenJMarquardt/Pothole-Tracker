@@ -6,7 +6,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <h1>Pothole List</h1>
+                <h1 class="title">Pothole List</h1>
             </div>
         </div>
     </div>
@@ -26,7 +26,7 @@
         <c:param name="orderBy" value="status_code"/>
     </c:url>
 
-    <div class="container">
+   <%--  <div class="container">
         <div class="row">
             <div class="col-md-12">
 
@@ -35,7 +35,7 @@
                     href="${orderByReportDateLink}">Report Date</a> | <a href="${orderByStatusCodeLink}">Status Code</a>
             </div>
         </div>
-    </div>
+    </div> --%>
 
     <div class="allPotholes hidden-xs hidden-sm">
         <div class="container">
@@ -118,7 +118,19 @@
                 <section id="pothole" class="hidden-md hidden-s hidden-lg">
                     <div class="row">
                         <div class="col-md-2">
-                            <p style="font-size: 20px"><b><c:out value="${pothole.streetName}"/></b></p>
+                            <p style="font-size: 20px">
+                            
+                            <c:choose>
+                                <c:when test="${isEmployee == false}">
+                                    <p style="font-size: 15px"><b><c:out value="${pothole.streetName}"/></b></p>
+                                </c:when>
+                                <c:otherwise>
+                                    <p style="font-size: 15px"><a href="${potholeIdLink}"><b><c:out
+                                            value="${pothole.streetName}"/></b></a></p>
+                                </c:otherwise>
+                            </c:choose>
+                            
+                            </p>
                         </div>
 
                         <div class="col-md-10">
@@ -148,6 +160,13 @@
             </div>
 
         </c:forEach>
+        <div class="row">
+            		 <div class="col-md-12">
+                		Order by
+               		 <a href="${orderBySeverityLink}">Severity</a> | <a href="${orderByStreetNameLink}">Street Name</a> | <a
+                    		href="${orderByReportDateLink}">Report Date</a> | <a href="${orderByStatusCodeLink}">Status Code</a>
+            		 </div>
+        		   </div>
     </div>
 </div>
 

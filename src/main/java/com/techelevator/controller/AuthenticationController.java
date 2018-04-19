@@ -34,7 +34,11 @@ public class AuthenticationController {
 		if(userDAO.searchForUsernameAndPassword(userName, password)) {
 			model.put("currentUser", userName);
 			session.setAttribute("currentUser", userName);
-			session.setAttribute("isEmployee", userDAO.seeIfUserIsEmployee(userName));
+			boolean sessionEmployee = userDAO.seeIfUserIsEmployee(userName);
+			
+			session.setAttribute("isEmployee", sessionEmployee);
+			model.put("isEmployee", sessionEmployee);
+			
 			return "redirect:/";
 		} else {
 			return "redirect:/user/login";

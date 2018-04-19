@@ -32,6 +32,7 @@
     <script src="${jsHref}/modal.js"></script>
     <script src="${jsHref}/script.js"></script>
     <script src="${jsHref}/passwordValidation.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato|Lobster|Shrikhand|Special+Elite" rel="stylesheet">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
