@@ -237,3 +237,10 @@ h3{
 	color: hsl(0, 0%, 45%);
 
 }
+
+#orderByWindow {
+	padding-top: 10px;
+	background-color: white;
+	opacity: 0.92;
+
+}
