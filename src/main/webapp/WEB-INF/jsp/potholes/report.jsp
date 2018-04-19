@@ -47,7 +47,7 @@
                 });
 
                 google.maps.event.addListener(map, 'click', function(event) {
-                    var marker = new google.maps.Marker({
+                        var marker = new google.maps.Marker({
                         position: event.latLng,
                         map: map,
                         icon: {
@@ -56,7 +56,7 @@
                         }
                     });
                     infoWindow.open(map, marker);
-                    saveToDataBase(marker);
+                    saveToDataBase(marker); 
                     
                 });
 
@@ -96,28 +96,38 @@
 
                 }
             }
-            function saveToDataBase(marker) {
-                $("#save").click(function() {
-                    var address = (document.getElementById('address').value);
-                    var latLng = marker.getPosition();
-                    var apiUrl = "../api/setCoordinates";
-                    $.ajax({
-                        url: apiUrl,
-                        type: "POST",
-                        dataType: "json",
-                        data: {
-                            streetName: address,
-                            latitude: latLng.lat(),
-                            longitude: latLng.lng()
-                        }
-                    }).done(function(number){
-                        infoWindow.close();
-                        messageWindow.open(map, marker);
-                    }).fail(function(xhr, status, error) {
-                        console.log(error);
-                    });
-                });
-            }
+                function saveToDataBase(marker) {
+                	   
+	                $("#save").click(function() {
+	                    var address = (document.getElementById('address').value);
+	                   
+	                    if (address == 0) {
+	                    		return;
+	                    }
+	                    document.getElementById('address').value = 0;
+	                    
+	                    var latLng = marker.getPosition();
+	                    var apiUrl = "../api/setCoordinates";
+	                    $.ajax({
+	                        url: apiUrl,
+	                        type: "POST",
+	                        dataType: "json",
+	                        data: {
+	                            streetName: address,
+	                            latitude: latLng.lat(),
+	                            longitude: latLng.lng()
+	                        }
+	                    }).done(function(number){
+	                    		
+	                        infoWindow.close();
+	                        messageWindow.open(map, marker);
+	                        
+	                    }).fail(function(xhr, status, error) {
+	                        console.log(error);
+	                    });
+	                    
+	                });
+                 }  
         </script>
 
 
