@@ -3,6 +3,7 @@
 
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
+
 <div id="report">
     <div class="container-fluid">
     		<h1>Report a Pothole</h1>

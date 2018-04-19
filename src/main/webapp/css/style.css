@@ -18,6 +18,16 @@ body {
 	background-color: lightgrey;
 }
 
+.background-img{
+	opacity:0.4 !important;
+	background-image: url("../img/prettydeath.jpg");
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color:white;
+}
+
 p { 
     font-size: 14px; 
     margin: 0 auto;  
