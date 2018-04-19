@@ -26,16 +26,6 @@
         <c:param name="orderBy" value="status_code"/>
     </c:url>
 
-   <%--  <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-
-                Order by
-                <a href="${orderBySeverityLink}">Severity</a> | <a href="${orderByStreetNameLink}">Street Name</a> | <a
-                    href="${orderByReportDateLink}">Report Date</a> | <a href="${orderByStatusCodeLink}">Status Code</a>
-            </div>
-        </div>
-    </div> --%>
 
     <div class="allPotholes hidden-xs hidden-sm">
         <div class="container">
@@ -49,7 +39,7 @@
                             <div class="col-md-2">
                                 Reported
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-1">
 
                             </div>
                             <div class="col-md-2">
@@ -61,6 +51,17 @@
                             <div class="col-md-2">
                                 Severity
                             </div>
+                            <div class="col-md-1">
+                                <form method="get">
+                                    <select name='orderBy' onchange='if(this.value != 0) { this.form.submit(); }'>
+                                        <option value='0'>Order by</option>
+                                        <option value="severity">Severity</option>
+                                        <option value='street_name'>Street Name</option>
+                                        <option value='report_date'>Report Date</option>
+                                        <option value='status_code'>Status Code</option>
+                                    </select>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -70,6 +71,21 @@
 
 
     <div class="allPotholes">
+        <div class="hidden-md hidden-s hidden-lg">
+            <div class="row">
+                <div class="col-md-12">
+                    <form method="get">
+                        <select name='orderBy' onchange='if(this.value != 0) { this.form.submit(); }'>
+                            <option value='0'>Order by</option>
+                            <option value="severity">Severity</option>
+                            <option value='street_name'>Street Name</option>
+                            <option value='report_date'>Report Date</option>
+                            <option value='status_code'>Status Code</option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </div>
         <c:forEach items="${allPotholes}" var="pothole">
 
             <c:url var="potholeIdLink" value="/potholes/employeePotholeUpdate">
@@ -78,6 +94,7 @@
 
             <div class="container">
                 <section id="pothole" class="hidden-xs hidden-sm">
+
                     <div class="row">
                         <div class="col-md-2">
                             <c:choose>
@@ -96,7 +113,7 @@
                                 <div class="col-md-2">
                                     <p><c:out value="${pothole.reportDate}"/></p>
                                 </div>
-                                <div class="col-md-2">
+                                <div class="col-md-1">
 
                                 </div>
                                 <div class="col-md-2">
@@ -109,6 +126,9 @@
                                     <p><c:url var="severityImgLink" value="/img/${pothole.severity}.png"/>
                                         <img class="severity-img" src="${severityImgLink}" alt="Severity"></p>
                                 </div>
+                                <div class="col-md-1">
+
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -116,20 +136,22 @@
                 </section>
 
                 <section id="pothole" class="hidden-md hidden-s hidden-lg">
+
                     <div class="row">
+
                         <div class="col-md-2">
                             <p style="font-size: 20px">
-                            
-                            <c:choose>
+
+                                <c:choose>
                                 <c:when test="${isEmployee == false}">
-                                    <p style="font-size: 15px"><b><c:out value="${pothole.streetName}"/></b></p>
-                                </c:when>
-                                <c:otherwise>
-                                    <p style="font-size: 15px"><a href="${potholeIdLink}"><b><c:out
-                                            value="${pothole.streetName}"/></b></a></p>
-                                </c:otherwise>
+                            <p style="font-size: 15px"><b><c:out value="${pothole.streetName}"/></b></p>
+                            </c:when>
+                            <c:otherwise>
+                                <p style="font-size: 15px"><a href="${potholeIdLink}"><b><c:out
+                                        value="${pothole.streetName}"/></b></a></p>
+                            </c:otherwise>
                             </c:choose>
-                            
+
                             </p>
                         </div>
 
@@ -160,13 +182,7 @@
             </div>
 
         </c:forEach>
-        <div class="row">
-            		 <div class="col-md-12">
-                		Order by
-               		 <a href="${orderBySeverityLink}">Severity</a> | <a href="${orderByStreetNameLink}">Street Name</a> | <a
-                    		href="${orderByReportDateLink}">Report Date</a> | <a href="${orderByStatusCodeLink}">Status Code</a>
-            		 </div>
-        		   </div>
+
     </div>
 </div>
 
@@ -229,7 +245,7 @@
             });
 
             var info = '<div id="content">' +
-                '<h3 id="firstHeading" class="firstHeading">' + "<img src=../img/" + severity + ".png width='30px'>"+ address + '</h3>' +
+                '<h3 id="firstHeading" class="firstHeading">' + "<img src=../img/" + severity + ".png width='30px'>" + address + '</h3>' +
                 '<h5 id="firstHeading" class="firstHeading" style="color: hsl(0, 0%, 45%);">' + '<b style="color: hsl(0, 0%, 13%);">' + 'Report Date: ' + '</b>' + reportDate + '</h5>' +
                 '<h5 id="firstHeading" class="firstHeading" style="color: hsl(0, 0%, 45%);">' + '<b style="color: hsl(0, 0%, 13%);">' + 'Status Date: ' + '</b>' + statusDate + '</h5>' +
                 '<h5 id="firstHeading" class="firstHeading" style="color: hsl(0, 0%, 45%);">' + '<b style="color: hsl(0, 0%, 13%);">' + 'Status Code: ' + '</b>' + statusCode + '</h5>' +
