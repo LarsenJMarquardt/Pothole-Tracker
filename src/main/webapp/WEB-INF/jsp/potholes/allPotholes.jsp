@@ -12,12 +12,6 @@
     </div>
 
     <div id="map"></div>
-	<!-- <div id="mapPothole">
-		<table>
-			<tr><td>Street name:</td> <td><input type='text' id='address'/> </td> </tr>
-			<tr><td></td><td><input type='button' value='Save' id='save' onclick='savePothole()'/> </td> </tr>
-		</table>
-	</div> -->
 
     <c:url var="orderBySeverityLink" value="/potholes/allPotholes">
         <c:param name="orderBy" value="severity"/>
@@ -168,7 +162,7 @@
  $(document).ready(function() {
 	 
 	$.ajax({
-		url: "/api/getCoordinates",
+		url: "/capstone/api/getCoordinates",
 		type: "GET",
 		dataType: "json",
 	}).done(function(potholes) {
@@ -208,13 +202,24 @@
         		content: info,
              });
             
-            var onclick = function(objeto_infowindow,marker){
-            	      var obj = objeto_infowindow;
+            var onclick = function(object_infowindow,marker){
+            	      var obj = object_infowindow;
             	      return function(){
             	      obj.open(map,marker);
             	      }
             	}
+            
+            var onMouseOut = function(object_infowindow,marker){
+      	      var obj = object_infowindow;
+      	      return function(){
+      	      obj.close(map,marker);
+	      	      }
+	      	}
+
             	google.maps.event.addListener(marker, 'click', onclick(object_infowindow['infowindow' + i], marker) );
+            	
+            	google.maps.event.addListener(marker, 'mouseout', onMouseOut(object_infowindow['infowindow' + i], marker) );
+
 		}
 	}
 </script>
