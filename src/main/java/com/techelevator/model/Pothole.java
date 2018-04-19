@@ -12,6 +12,8 @@ public class Pothole {
     private double longitude;
     private double latitude;
     private LocalDate reportDate;
+    private String statusDateToString;
+    private String reportDateToString;
 
     public Long getId() {
         return id;
@@ -77,4 +79,11 @@ public class Pothole {
         this.reportDate = reportDate;
     }
 
+    public String getStatusDateToString() {
+        return statusDate.toString();
+    }
+
+    public String getReportDateToString() {
+        return reportDate.toString();
+    }
 }

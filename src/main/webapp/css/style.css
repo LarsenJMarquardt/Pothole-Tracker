@@ -5,6 +5,7 @@ h1 {
 	font-family: sans-serif; 
 	margin: 0 auto; 
 	padding: 50px 10px 20px 10px;
+	color: pink;
 }
 
 img {
@@ -16,6 +17,16 @@ body {
     font-size: 18px;
     margin: 0 auto;
 	background-color: lightgrey;
+}
+
+.background-img{
+	opacity:0.4 !important;
+	background-image: url("../img/prettydeath.jpg");
+	background-attachment: fixed;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	color:white;
 }
 
 p { 
@@ -95,6 +106,8 @@ hr {
 	padding-left: 10%;
 	padding-right: 10%;
 	padding-top: 10px;
+	background: white;
+	opacity: 0.75;
 	
 }
 
@@ -146,9 +159,63 @@ hr {
 	background-color: lightgray;
 }
 
+.home-content {
+	background-color: lightgray;
+	border-radius: 10px;
+	margin: 0% 10% 0% 10%;
+}
+
 .error {
 	/*text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;*/
 	color : #ff4d00;
 }
 
+#pave-pal {
+	max-width: 200px;
+	margin: 2%;
+}
 
+#road-to-well-box {
+	align-text: center;
+	
+}
+
+#road-to-well {
+	font-family: 'Lobster', cursive;
+	opacity: 0.8;
+	font-size: 23px !important;
+	padding: 10%;
+}
+
+.copyright {
+    padding: 0px;
+}
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-image: linear-gradient(to top, #141414, #0f0f0f, #1d1c1c, #343233, #3f3d3d);
+    color: white;
+    text-align: center;
+}
+
+
+.body {
+    background-image: url("../img/The-road-to-black-and-white.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.allPotholes {
+    background-color: white;
+    opacity: 0.75;
+}
+
+h3{
+	color: hsl(0, 0%, 45%);
+
+}

@@ -1,6 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<c:import url="/WEB-INF/jsp/common/header.jsp" />
+<c:import url="/WEB-INF/jsp/common/header.jsp"/>
 
 
 <script type="text/javascript">
@@ -8,20 +8,20 @@
 
         $("#loginForm").validate({
 
-            rules : {
-                userName : {
-                    required : true
+            rules: {
+                userName: {
+                    required: true
                 },
-                password : {
-                    required : true
+                password: {
+                    required: true
                 }
             },
-            messages : {
-                confirmPassword : {
-                    equalTo : "Passwords do not match"
+            messages: {
+                confirmPassword: {
+                    equalTo: "Passwords do not match"
                 }
             },
-            errorClass : "error"
+            errorClass: "error"
         });
     });
 </script>
@@ -29,15 +29,15 @@
 <div class="row">
     <div class="col-sm-4"></div>
     <div class="col-sm-4">
-        <c:url var="formAction" value="/user/login" />
+        <c:url var="formAction" value="/user/login"/>
         <form id="loginForm" method="POST" action="${formAction}">
             <div class="form-group">
                 <label for="userName">User Name: </label>
-                <input type="text" id="userName" name="userName" placeHolder="User Name" class="form-control" />
+                <input type="text" id="userName" name="userName" placeHolder="User Name" class="form-control"/>
             </div>
             <div class="form-group">
                 <label for="password">Password: </label>
-                <input type="password" id="password" name="password" placeHolder="Password" class="form-control" />
+                <input type="password" id="password" name="password" placeHolder="Password" class="form-control"/>
             </div>
             <button type="submit" class="btn btn-warning">Login</button>
         </form>
@@ -46,4 +46,4 @@
 </div>
 
 
-<c:import url="/WEB-INF/jsp/common/footer.jsp" />
+<c:import url="/WEB-INF/jsp/common/footer.jsp"/>

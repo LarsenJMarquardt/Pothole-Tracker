@@ -34,12 +34,11 @@
     <script src="${jsHref}/passwordValidation.js"></script>
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="http://cdn.jsdelivr.net/jquery.validation/1.15.0/jquery.validate.min.js"></script>
+
 </head>
 
-<body>
+<body class="body">
+
 <c:url value="/" var="homePageHref"/>
 <c:url value="/potholes/allPotholes" var="allPotholesHref"/>
 <c:url value="/potholes/report" var="reportHref"/>
@@ -50,64 +49,58 @@
 
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
-            <p class="visible-sm">
-                <c:if test="${currentUser != null}">
-                    <p style="color:lightgrey; padding-top: 13px">
-                        Welcome, ${currentUser}!
-                    </p>
-                </c:if>
-            </p>
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1"
-                    aria-expanded="false">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+                    data-target="#bs-example-navbar-collapse-1">
+
                 <span class="sr-only">Toggle navigation</span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="${homePageHref}">
-            </a>
+            <div class="navbar-brand">
+                <%--<c:choose>--%>
+                    <%--<c:when test="${userName != null}">--%>
+                        <c:out value="${currentUser}"/>
+                    <%--</c:when>--%>
+                    <%--<c:otherwise>--%>
+                        <%--<c:out value="Guest"/>--%>
+                    <%--</c:otherwise>--%>
+                <%--</c:choose>--%>
+            </div>
         </div>
 
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-left">
 
+            <ul class="nav navbar-nav navbar-left">
                 <li class="active">
-                    <a href="${homePageHref}">Home</a>
+                    <a href="${homePageHref}"><span class="glyphicon glyphicon-home"></span> Home</a>
                 </li>
                 <li>
-                    <a href="${allPotholesHref}">Pothole List</a>
+                    <a href="${allPotholesHref}"><span class="glyphicon glyphicon-list"></span> Pothole List</a>
                 </li>
                 <li>
-                    <a href="${reportHref}">Report Pothole</a>
+                    <a href="${reportHref}"><span class="glyphicon glyphicon-road"></span> Report Pothole</a>
                 </li>
 
             </ul>
-
-
             <ul class="nav navbar-nav navbar-right">
 
 
                 <c:choose>
                     <c:when test="${currentUser != null}">
-                        <li style="color:lightgrey; padding-top: 13px">
-                            Welcome, ${currentUser}!
-                        </li>
                         <li>
-                            <a href="${logoutHref}">Logout</a>
+                            <a href="${logoutHref}"><span class="glyphicon glyphicon-log-out"></span> Logout</a>
                         </li>
                     </c:when>
                     <c:otherwise>
                         <li>
-                            <a href="#registerModal" data-toggle="modal" data-target="#registerModal">Register</a>
+                            <a href="#registerModal" data-toggle="modal" data-target="#registerModal"><span
+                                    class="glyphicon glyphicon-user"></span> Register</a>
                         </li>
                         <li>
-                            <a href="#loginModal" data-toggle="modal" data-target="#loginModal">Login</a>
+                            <a href="#loginModal" data-toggle="modal" data-target="#loginModal"><span
+                                    class="glyphicon glyphicon-log-in"></span> Login</a>
                         </li>
 
                     </c:otherwise>
@@ -199,9 +192,6 @@
                                placeHolder="Re-Type Password" class="form-control"/>
                     </div>
 
-                    <%--<div class="checkbox">--%>
-                    <%--<label><input type="checkbox" value="" checked>Remember me</label>--%>
-                    <%--</div>--%>
                     <button type="submit" class="btn btn-warning btn-block"><span
                             class="glyphicon glyphicon-off"></span> Create User
                     </button>
@@ -211,8 +201,7 @@
                 <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span
                         class="glyphicon glyphicon-remove"></span> Cancel
                 </button>
-                <%--<p>Not a member? <a href="#">Sign Up</a></p>--%>
-                <%--<p>Forgot <a href="#">Password?</a></p>--%>
+
             </div>
         </div>
 
