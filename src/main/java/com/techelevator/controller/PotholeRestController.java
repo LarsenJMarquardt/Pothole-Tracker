@@ -27,4 +27,5 @@ public class PotholeRestController {
         List<Pothole> potholes = potholeDAO.getListOfPotholes(orderBy);
         return potholes;
     }
+
 }

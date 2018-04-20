@@ -15,6 +15,12 @@
             var map;
             var infoWindow;
             var messageWindow;
+            var infoWindowContent = '<div id="mapPothole">' +
+                '<table>'+'<tr>'+'<td>'+'Street name: '+'</td>'+ '<td>'+'<input type="text" minlength="4" id="address" class="form-control"/>' +'</td>'+'</tr>'+
+                '<tr>'+'<td>'+'</td>'+'<td>'+'<input type="button" class="btn btn-warning pull-right" style="margin-top: 5px" value="Report" id="save"/>'+'</td>'+'</tr>' +
+                '</table>'+
+                '</div>';
+            var messageWindowContent = '<div id="message">'+'Pothole location saved!'+'</div>';
 
             function initMap() {
                 var columbusCenterPos = {lat: 39.998238, lng: -83.043742};
@@ -30,24 +36,15 @@
                 map = new google.maps.Map(document.getElementById('map'),
                     mapOptions);
 
-                var infoWindowContent = '<div id="mapPothole">' +
-                    '<table>'+'<tr>'+'<td>'+'Street name: '+'</td>'+ '<td>'+'<input type="text" minlength="4" id="address" class="form-control"/>' +'</td>'+'</tr>'+
-                    '<tr>'+'<td>'+'</td>'+'<td>'+'<input type="button" class="btn btn-warning pull-right" style="margin-top: 5px" value="Report" id="save"/>'+'</td>'+'</tr>' +
-                    '</table>'+
-                    '</div>';
-
-                var messageWindowContent = '<div id="message">'+'Pothole location saved!'+'</div>';
-
                 infoWindow = new google.maps.InfoWindow({
-                    content: infoWindowContent,
+                    content: infoWindowContent
                 });
-
                 messageWindow = new google.maps.InfoWindow({
-                    content: messageWindowContent,
+                    content: messageWindowContent
                 });
 
                 google.maps.event.addListener(map, 'click', function(event) {
-                    var marker = new google.maps.Marker({
+                        var marker = new google.maps.Marker({
                         position: event.latLng,
                         map: map,
                         icon: {
@@ -56,47 +53,20 @@
                         }
                     });
                     infoWindow.open(map, marker);
-                    saveToDataBase(marker);
+                    saveToDatabase(marker);
+                    deleteMarker(infoWindow, marker);
                 });
 
-
-            }
-
-
-            $(document).ready(function() {
-                $.ajax({
-                    url: "../api/getCoordinates",
-                    type: "GET",
-                    dataType: "json",
-                }).done(function(potholes) {
-                    populateMap(potholes);
-                }).fail(function(xhr, status, error) {
-                    console.log(error);
-                });
-            });
-
-            function populateMap(potholes) {
-
-                for (var i = 0; i < potholes.length; i++) {
-                    var address = potholes[i].streetName;
-                    var lat = potholes[i].latitude;
-                    var lng = potholes[i].longitude;
-                    severity = potholes[i].severity;
-
-                    var marker = new google.maps.Marker({
-                        position: {lat: lat, lng: lng},
-                        map: map,
-                        address: address,
-                        icon: {
-                            url: '../img/map_' + severity + '.png',
-                            scaledSize: new google.maps.Size(40, 40)
-                        }
+                function deleteMarker(infoWindow, marker) {
+                    google.maps.event.addListener(infoWindow, 'closeclick', function () {
+                        marker.setMap(null);
                     });
-
                 }
+
             }
-            function saveToDataBase(marker) {
-                $("#save").click(function() {
+
+            function saveToDatabase(marker) {
+                  $("#save").click(function() {
                     var address = (document.getElementById('address').value);
                     var latLng = marker.getPosition();
                     var apiUrl = "../api/setCoordinates";
@@ -115,7 +85,38 @@
                     }).fail(function(xhr, status, error) {
                         console.log(error);
                     });
+                  });
+            }
+
+            $(document).ready(function() {
+                $.ajax({
+                    url: "../api/getCoordinates",
+                    type: "GET",
+                    dataType: "json",
+                }).done(function(potholes) {
+                    populateMap(potholes);
+                }).fail(function(xhr, status, error) {
+                    console.log(error);
                 });
+            });
+
+            function populateMap(potholes) {
+                for (var i = 0; i < potholes.length; i++) {
+                    var address = potholes[i].streetName;
+                    var lat = potholes[i].latitude;
+                    var lng = potholes[i].longitude;
+                    severity = potholes[i].severity;
+
+                    var marker = new google.maps.Marker({
+                        position: {lat: lat, lng: lng},
+                        map: map,
+                        address: address,
+                        icon: {
+                            url: '../img/map_' + severity + '.png',
+                            scaledSize: new google.maps.Size(40, 40)
+                        }
+                    });
+                }
             }
         </script>
 
