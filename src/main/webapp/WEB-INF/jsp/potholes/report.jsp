@@ -6,7 +6,7 @@
 
 <div id="report">
     <div class="container-fluid">
-        <h1>Report a Pothole</h1>
+        <h1 class="title">Report a Pothole</h1>
         <div id="map"></div>
 
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAhZ4dsKOQPtb3_-VdaqZ9dfYtrjhHC0-I&callback=initMap"
@@ -23,12 +23,12 @@
             var messageWindowContent = '<div id="message">'+'Pothole location saved!'+'</div>';
 
             function initMap() {
-                var columbusCenterPos = {lat: 39.998238, lng: -83.043742};
+                var columbusCenterPos = {lat: 39.964613, lng: -83.003502};
                 directionsService = new google.maps.DirectionsService();
                 directionsDisplay = new google.maps.DirectionsRenderer();
                 var mapOptions = {
                     center: new google.maps.LatLng(columbusCenterPos),
-                    zoom: 15,
+                    zoom: 14,
                     mapTypeId: google.maps.MapTypeId.ROADMAP,
                     streetViewControl: false,
                     gestureHandling: 'greedy'
@@ -53,8 +53,8 @@
                         }
                     });
                     infoWindow.open(map, marker);
-                    saveToDatabase(marker);
-                    deleteMarker(infoWindow, marker);
+                    saveToDataBase(marker); 
+
                 });
 
                 function deleteMarker(infoWindow, marker) {
@@ -118,6 +118,39 @@
                     });
                 }
             }
+
+                function saveToDataBase(marker) {
+                	   
+	                $("#save").click(function() {
+	                    var address = (document.getElementById('address').value);
+	                   
+	                    if (address == 0) {
+	                    		return;
+	                    }
+	                    document.getElementById('address').value = 0;
+	                    
+	                    var latLng = marker.getPosition();
+	                    var apiUrl = "../api/setCoordinates";
+	                    $.ajax({
+	                        url: apiUrl,
+	                        type: "POST",
+	                        dataType: "json",
+	                        data: {
+	                            streetName: address,
+	                            latitude: latLng.lat(),
+	                            longitude: latLng.lng()
+	                        }
+	                    }).done(function(number){
+	                    		
+	                        infoWindow.close();
+	                        messageWindow.open(map, marker);
+	                        
+	                    }).fail(function(xhr, status, error) {
+	                        console.log(error);
+	                    });
+	                    
+	                });
+                 }
         </script>
 
 

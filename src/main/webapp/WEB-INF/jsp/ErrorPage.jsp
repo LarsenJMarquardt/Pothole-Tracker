@@ -7,7 +7,7 @@
 <c:import url="/WEB-INF/jsp/common/header.jsp" />
 
 <div class="container-fluid">
-	<h1><c:out value="${errorMsg}"/></h1>
+	<h1 class="title"><c:out value="${errorMsg}"/></h1>
 		<div class="row">
 			<div class="col-md-12" style="display: flex; justify-content: center">
 				<c:url var="ImgLink" value="/img/404.png" />

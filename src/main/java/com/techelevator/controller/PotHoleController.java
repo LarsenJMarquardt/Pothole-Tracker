@@ -33,7 +33,7 @@ public class PotHoleController {
         if (orderBy == null) {
             orderBy = "report_date";
         }
-
+        
         model.addAttribute("allPotholes", potholeDAO.getListOfPotholes(orderBy));
 
         return "/potholes/allPotholes";
